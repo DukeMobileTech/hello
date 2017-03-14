@@ -1,0 +1,12 @@
+<% @categories.each_slice(3) do |categories| %>
+<div class="row">
+  <% categories.each do |category| %>
+  <div class="col-sm-4">
+    <h2 class="text-center">
+      <%= category.name %>
+    </h2>
+    <%= image_tag category.pictogram.url(:medium), class: 'img-responsive, img-thumbnail' %>
+  </div>
+  <% end %>
+</div>
+<% end %>
