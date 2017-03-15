@@ -38,6 +38,8 @@ gem 'paperclip', '~> 5.1.0'
 gem 'activeadmin', '~> 1.0.0.pre5'
 gem 'bootstrap', '~> 4.0.0.alpha6'
 gem 'annotate', '~> 2.7', '>= 2.7.1'
+gem 'paperclip-av-transcoder', '~> 0.6.4'
+gem 'language_list', '~> 1.1'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

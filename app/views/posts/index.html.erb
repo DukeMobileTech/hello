@@ -1,0 +1,40 @@
+<h1 class="text-center"><%= @category.name %></h1>
+<% @posts.each do |post| %>
+<div class="card">
+  <div class="row">
+    <div class="col-sm-8">
+      <div class="card-block">
+        <h3 class="card-title text-center">
+          <%= post.title %>
+        </h3>
+        <%= video_tag post.video.url(:medium), controls: true %>
+      </div>
+    </div>
+    <div class="col-sm-4">
+      <% post.translations.each do |translation| %>
+      <div class="card">
+        <div class="card-block">
+          <div class="row">
+            <h3 class="col-sm-4 text-right">
+              <%= translation.language.split(' ').last %>
+            </h3>
+            <h3 class="col-sm-8 text-left">
+              <%= translation.title %>
+            </h3>
+          </div>
+          <%= audio_tag translation.audio.url, controls: true %>
+        </div>
+      </div>
+      <% end %>
+      <div class="card">
+        <div class="card-block">
+          <h3 class="text-center">
+            <strong>English Transcript</strong>
+          </h3>
+          <%= post.transcript %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<% end %>

@@ -9,17 +9,10 @@
   </head>
 
   <body>
-    <nav class="navbar navbar-default">
-      <div class="container-fluid">
-        <div class="navbar-header">
-          <a class="navbar-brand" href="#">
-            <!-- <img alt="Hello" src="..."> -->
-            <div class="text-left">
-              The Hello Project
-            </div>
-          </a>
-        </div>
-      </div>
+    <nav class="navbar navbar-default navbar-fixed-top">
+      <h1 class="container">
+        <%= link_to 'The Hello Project', root_path %>
+      </h1>
     </nav>
     <div class="container">
       <%= yield %>

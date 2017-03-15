@@ -14,7 +14,12 @@
 
 # Tab
 class Category < ApplicationRecord
-  has_attached_file :pictogram, styles: { medium: '300x300>', thumb: '100x100>' }
+  has_many :posts
+  has_many :translations, through: :posts
+  has_attached_file :pictogram, styles: {
+    medium: '300x300>',
+    thumb: '100x100>'
+  }
   validates_attachment_content_type :pictogram, content_type: %r{\Aimage\/.*\z}
   validates_attachment_file_name :pictogram, matches: [/png\Z/, /jpe?g\Z/]
   validates_with AttachmentSizeValidator, attributes: :pictogram, less_than: 5.megabytes

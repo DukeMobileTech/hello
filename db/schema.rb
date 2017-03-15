@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170307193404) do
+ActiveRecord::Schema.define(version: 20170314141525) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace"
@@ -34,6 +34,31 @@ ActiveRecord::Schema.define(version: 20170307193404) do
     t.string   "pictogram_content_type"
     t.integer  "pictogram_file_size"
     t.datetime "pictogram_updated_at"
+  end
+
+  create_table "posts", force: :cascade do |t|
+    t.string   "title"
+    t.integer  "category_id"
+    t.text     "transcript"
+    t.string   "video_meta"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+    t.string   "video_file_name"
+    t.string   "video_content_type"
+    t.integer  "video_file_size"
+    t.datetime "video_updated_at"
+  end
+
+  create_table "translations", force: :cascade do |t|
+    t.string   "title"
+    t.string   "language"
+    t.integer  "post_id"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+    t.string   "audio_file_name"
+    t.string   "audio_content_type"
+    t.integer  "audio_file_size"
+    t.datetime "audio_updated_at"
   end
 
 end
