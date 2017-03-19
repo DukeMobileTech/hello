@@ -18,6 +18,5 @@
 /public/system
 
 # Ignore sensitive information
-/config/secrets.yml
 /config/local_env.yml
 
