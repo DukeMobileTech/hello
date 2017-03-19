@@ -16,7 +16,8 @@
 #
 
 # Post with video
-# Need to install ffmpeg inorder for upload to work
+# Need to install ffmpeg inorder for video upload to work
+# Use buildpacks in Heroku to install ffmpeg
 class Post < ApplicationRecord
   belongs_to :category
   has_many :translations
