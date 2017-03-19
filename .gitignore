@@ -17,6 +17,7 @@
 # Ignore file uploads
 /public/system
 
-# Ignore cookie secrets
+# Ignore sensitive information
 /config/secrets.yml
+/config/local_env.yml
 
