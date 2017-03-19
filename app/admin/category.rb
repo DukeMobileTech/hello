@@ -8,7 +8,7 @@ ActiveAdmin.register Category do
   end
 
   form do |f|
-    f.inputs 'Category Details' do
+    f.inputs 'Category Details', multipart: true do
       f.input :name, label: 'Name'
       f.input :pictogram, as: :file
     end

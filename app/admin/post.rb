@@ -9,7 +9,7 @@ ActiveAdmin.register Post do
   end
 
   form do |f|
-    f.inputs 'Post' do
+    f.inputs 'Post', multipart: true do
       f.input :title, label: 'Title'
       f.input :transcript, label: 'English Transcript'
       f.input :video, as: :file
