@@ -14,9 +14,14 @@
  
  @import "bootstrap";
  @import "active_admin";
+ @import "bootstrap3_player";
 
 body {
   background-color: #EAE8E4;
+}
+
+audio {
+  margin: 0 auto;
 }
 
 .navbar-default {

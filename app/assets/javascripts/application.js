@@ -15,4 +15,5 @@
 //= require bootstrap
 //= require jquery_ujs
 //= require turbolinks
+//= require bootstrap3_player
 //= require_tree .
