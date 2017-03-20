@@ -1,12 +1,14 @@
-<% @categories.each_slice(3) do |categories| %>
-<div class="row">
-  <% categories.each do |category| %>
-  <div class="col-sm-4">
-    <h2 class="text-center">
-      <%= category.name %>
-    </h2>
-    <%= link_to (image_tag category.pictogram.url(:medium), class: 'img-responsive, img-thumbnail'), category_posts_path(category.id) %>
+<div class="tab-block">
+  <% @categories.each_slice(3) do |categories| %>
+  <div class="row">
+    <% categories.each do |category| %>
+    <div class="col-xs-12 col-sm-12 col-md-4">
+      <%= link_to (image_tag category.pictogram.url(:medium), class: 'img-fluid mx-auto d-block rounded card-img-top'), category_posts_path(category.id) %>
+      <h4 class="text-center text-info">
+        <small><%= category.name %></small>
+      </h4>
+    </div>
+    <% end %>
   </div>
   <% end %>
 </div>
-<% end %>
