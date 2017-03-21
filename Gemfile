@@ -35,6 +35,7 @@ gem 'jbuilder', '~> 2.5'
 # gem 'capistrano-rails', group: :development
 
 gem 'paperclip', '~> 5.1.0'
+gem 'inherited_resources', '~> 1.7'
 gem 'activeadmin', '~> 1.0.0.pre5'
 gem 'bootstrap', '~> 4.0.0.alpha6'
 gem 'annotate', '~> 2.7', '>= 2.7.1'

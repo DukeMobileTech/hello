@@ -260,6 +260,7 @@ DEPENDENCIES
   byebug
   coffee-rails (~> 4.2)
   devise (~> 4.2)
+  inherited_resources (~> 1.7)
   jbuilder (~> 2.5)
   jquery-rails
   language_list (~> 1.1)

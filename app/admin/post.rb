@@ -4,7 +4,31 @@ ActiveAdmin.register Post do
 
   sidebar 'Audio Translations', only: :show do
     ul do
-      li link_to 'Audios', admin_post_translations_path(params[:id])
+      li link_to 'Audio Translations', admin_post_translations_path(params[:id])
+    end
+  end
+
+  index do
+    selectable_column
+    column :id
+    column :title
+    column :updated_at
+    actions
+  end
+
+  show do
+    attributes_table do
+      row :id
+      row :title
+      row :updated_at
+      row 'Number of audio translations' do |post|
+        post.translations.size
+      end
+      row :video_updated_at
+      row :video do |post|
+        post.video ? video_tag(post.video.url, controls: true) : content_tag(:span, 'No Video')
+      end
+      row :transcript
     end
   end
 

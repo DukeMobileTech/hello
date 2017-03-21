@@ -1,9 +1,31 @@
 ActiveAdmin.register Category do
   permit_params :name, :pictogram
 
-  sidebar 'Posts', only: :show do
+  sidebar 'Category Posts', only: :show do
     ul do
-      li link_to 'Videos', admin_category_posts_path(params[:id])
+      li link_to 'Posts', admin_category_posts_path(params[:id])
+    end
+  end
+
+  index do
+    selectable_column
+    column :id
+    column :name
+    column :updated_at
+    actions
+  end
+
+  show do
+    attributes_table do
+      row :id
+      row :name
+      row :updated_at
+      row 'Number of posts' do |category|
+        category.posts.size
+      end
+      row :pictogram do |category|
+        category.pictogram ? image_tag(category.pictogram.url(:medium)) : content_tag(:span, 'No Pictogram')
+      end
     end
   end
 
