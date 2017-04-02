@@ -20,3 +20,7 @@
 # Ignore sensitive information
 /config/local_env.yml
 
+# Ignore OS files
+*.DS_Store
+
+

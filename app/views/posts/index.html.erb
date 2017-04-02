@@ -44,3 +44,17 @@
   </div>
 </div>
 <% end %>
+<% unless @category.documents.blank? %>
+<div class="card">
+  <div class="card-block">
+    <h3 class="text-center">
+      <strong>Documents</strong>
+    </h3>
+    <% @category.documents.each do |doc| %>
+    <div>
+      <%= link_to doc.title, category_document_path(@category, doc) %>
+    </div>
+    <% end %>
+  </div>
+</div>
+<% end %>

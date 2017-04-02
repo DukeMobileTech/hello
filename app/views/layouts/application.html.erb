@@ -10,10 +10,16 @@
   </head>
 
   <body>
-    <nav class="navbar navbar-default navbar-fixed-top">
+    <!-- <nav class="navbar navbar-default navbar-fixed-top">
       <h1 class="container">
-        <%= link_to 'The Hello Project', root_path %>
+        <%#= link_to 'The Hello Project', root_path %>
       </h1>
+    </nav> -->
+    <!-- Just an image -->
+    <nav class="navbar navbar-light bg-faded">
+      <a class="img-responsive" href="<%= root_path %>">
+        <img src="<%= asset_path( 'logo.png' ) %>">
+      </a>
     </nav>
     <div class="container">
       <%= yield %>

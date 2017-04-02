@@ -16,6 +16,7 @@
 class Category < ApplicationRecord
   has_many :posts
   has_many :translations, through: :posts
+  has_many :documents
   has_attached_file :pictogram, styles: {
     medium: '300x300>',
     thumb: '100x100>'
