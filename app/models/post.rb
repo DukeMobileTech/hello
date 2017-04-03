@@ -5,7 +5,6 @@
 #  id                 :integer          not null, primary key
 #  title              :string
 #  category_id        :integer
-#  transcript         :text
 #  video_meta         :string
 #  created_at         :datetime         not null
 #  updated_at         :datetime         not null
@@ -20,6 +19,7 @@
 # Use buildpacks in Heroku to install ffmpeg
 class Post < ApplicationRecord
   belongs_to :category
+  has_many :transcripts
   has_many :translations
   has_attached_file :video, styles: {
     medium: {
@@ -33,4 +33,8 @@ class Post < ApplicationRecord
     }
   }, processors: [:transcoder]
   validates_attachment_content_type :video, content_type: %r{\Avideo\/.*\Z}
+
+  def languages
+    (translations.pluck(:language) + transcripts.pluck(:language)).uniq
+  end
 end

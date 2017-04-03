@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170401144147) do
+ActiveRecord::Schema.define(version: 20170403175128) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -93,7 +93,6 @@ ActiveRecord::Schema.define(version: 20170401144147) do
   create_table "posts", force: :cascade do |t|
     t.string   "title"
     t.integer  "category_id"
-    t.text     "transcript"
     t.string   "video_meta"
     t.datetime "created_at",         null: false
     t.datetime "updated_at",         null: false
@@ -101,6 +100,15 @@ ActiveRecord::Schema.define(version: 20170401144147) do
     t.string   "video_content_type"
     t.integer  "video_file_size"
     t.datetime "video_updated_at"
+  end
+
+  create_table "transcripts", force: :cascade do |t|
+    t.integer  "post_id"
+    t.string   "language"
+    t.string   "title"
+    t.text     "text"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "translations", force: :cascade do |t|

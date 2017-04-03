@@ -6,9 +6,7 @@ ActiveAdmin.register Translation do
     selectable_column
     column :id
     column :title
-    column :language do |translation|
-      translation.language.split(' ').last
-    end
+    column :language
     column :updated_at
     actions
   end
@@ -28,8 +26,8 @@ ActiveAdmin.register Translation do
 
   form do |f|
     f.inputs 'Translation', multipart: true do
-      f.input :title, label: 'Title'
-      f.input :language, label: 'Audio Language', collection: LanguageList::COMMON_LANGUAGES
+      f.input :title
+      f.input :language, collection: LanguageList::ALL_LANGUAGES.map(&:name).sort
       f.input :audio, as: :file
     end
     f.actions

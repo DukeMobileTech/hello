@@ -5,7 +5,6 @@
 #  id                 :integer          not null, primary key
 #  title              :string
 #  category_id        :integer
-#  transcript         :text
 #  video_meta         :string
 #  created_at         :datetime         not null
 #  updated_at         :datetime         not null

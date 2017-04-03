@@ -1,0 +1,46 @@
+<h1 class="text-center">
+  <%= @category.name %>
+</h1>
+<h3 class="text-center text-info">
+  <%= @post.title %>
+</h3>
+<div class="card">
+  <div class="row">
+    <div class="col-xs-12 col-md-8">
+      <div class="card-block">
+        <div class="embed-responsive embed-responsive-4by3">
+          <video class="embed-responsive-item" src="<%= @post.video.url(:medium) %>" type="<%= @post.video_content_type %>" controls></video>
+        </div>
+      </div>
+    </div>
+    <div class="col-xs-12 col-md-4">
+      <% @translations.each do |translation| %>
+      <h3 class="text-center text-info mt-1">
+        <strong><%= translation.language %></strong>
+      </h3>
+      <div class="card mb-2">
+        <div class="card-block">
+          <h3 class="text-center text-info">
+            <%= translation.title %>
+          </h3>
+          <div class="row col-xs-12">
+            <audio controls>
+              <source src="<%= translation.audio.url %>" type="<%= translation.audio_content_type %>"/>
+            </audio>
+          </div>
+        </div>
+      </div>
+      <% end %>
+      <% @transcripts.each do |transcript| %>
+      <div class="card">
+        <div class="card-block">
+          <h3 class="text-center text-info">
+            Transcript
+          </h3>
+          <%= transcript.text %>
+        </div>
+      </div>
+      <% end %>
+    </div>
+  </div>
+</div>

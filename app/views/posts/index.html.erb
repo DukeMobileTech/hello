@@ -1,51 +1,31 @@
-<h1 class="text-center"><%= @category.name %></h1>
-<% @posts.each do |post| %>
-<div class="card">
-  <div class="row">
-    <div class="col-xs-12 col-md-8">
-      <div class="card-block">
-        <h3 class="card-title text-center text-info">
-          <%= post.title %>
-        </h3>
-        <div class="embed-responsive embed-responsive-4by3">
-          <video class="embed-responsive-item" src="<%= post.video.url(:medium) %>" type="<%= post.video_content_type %>" controls></video>
-        </div>
-      </div>
+<h1 class="text-center">
+  <%= @category.name %>
+</h1>
+<% unless @category.posts.blank? %>
+<div class="card mb-5">
+  <div class="card-block">
+    <h3 class="text-center text-info">
+      <strong>Videos</strong>
+    </h3>
+    <% @category.posts.each do |post| %>
+    <div class="row">
+      <label class="col-sm-4">
+        <%= post.languages.blank? ? link_to(post.title, category_post_path(@category, post)) : post.title %>
+      </label>
+      <label class="col-sm-8">
+        <% post.languages.each do |language| %>
+        <span>
+          <%= link_to language, category_post_path(@category, post, language: language) %>
+        </span>
+        <% end %>
+      </label>
     </div>
-    <div class="col-xs-12 col-md-4">
-      <% post.translations.each do |translation| %>
-      <div class="card">
-        <div class="card-block">
-          <div class="row">
-            <h3 class="col-xs-4 col-md-4 text-info">
-              <%= translation.language.split(' ').last %>:
-            </h3>
-            <h3 class="col-xs-8 col-md-8 text-info">
-              <%= translation.title %>
-            </h3>
-          </div>
-          <div class="row col-xs-12">
-            <audio controls>
-              <source src="<%= translation.audio.url %>" type="<%= translation.audio_content_type %>"/>
-            </audio>
-          </div>
-        </div>
-      </div>
-      <% end %>
-      <div class="card">
-        <div class="card-block">
-          <h3 class="text-center text-info">
-            <strong>English Transcript</strong>
-          </h3>
-          <%= post.transcript %>
-        </div>
-      </div>
-    </div>
+    <% end %>
   </div>
 </div>
 <% end %>
 <% unless @category.documents.blank? %>
-<div class="card">
+<div class="card mb-5">
   <div class="card-block">
     <h3 class="text-center text-info">
       <strong>Documents</strong>
