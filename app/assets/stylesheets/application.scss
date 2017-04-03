@@ -16,8 +16,12 @@
  @import "active_admin";
  @import "bootstrap3_player";
 
-$blue-scheme: #0736A4;
+$body-background-color: #FDFCF2;
+$header-background-color: #FEC433;
+$footer-background-color: #CCD53F;
 $footer-height: 50px;
+$black-text-color: #000;
+$subtitle-color: #74BBB3;
 
 html {
   position: relative;
@@ -25,7 +29,7 @@ html {
 }
 
 body {
-  background-color: #EAE8E4;
+  background-color: $body-background-color;
   margin-bottom: $footer-height;
 }
 
@@ -34,7 +38,7 @@ audio {
 }
 
 .navbar-inverse {
-    background-color: $blue-scheme;
+    background-color: $header-background-color;
 }
 
 .navbar-brand {
@@ -52,5 +56,17 @@ audio {
   /* Set the fixed height of the footer here */
   height: $footer-height;
   line-height: $footer-height; /* Vertically center the text there */
-  background-color: $blue-scheme;
+  background-color: $footer-background-color;
+}
+
+.navbar-inverse .navbar-brand, .navbar-inverse .navbar-toggler {
+  color: $black-text-color;
+}
+
+.navbar-inverse .navbar-nav .nav-link {
+  color: $black-text-color;
+}
+
+.text-info {
+  color: $subtitle-color !important;
 }

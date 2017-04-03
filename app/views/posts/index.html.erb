@@ -4,7 +4,7 @@
   <div class="row">
     <div class="col-xs-12 col-md-8">
       <div class="card-block">
-        <h3 class="card-title text-center">
+        <h3 class="card-title text-center text-info">
           <%= post.title %>
         </h3>
         <div class="embed-responsive embed-responsive-4by3">
@@ -17,10 +17,10 @@
       <div class="card">
         <div class="card-block">
           <div class="row">
-            <h3 class="col-xs-4 col-md-4">
+            <h3 class="col-xs-4 col-md-4 text-info">
               <%= translation.language.split(' ').last %>:
             </h3>
-            <h3 class="col-xs-8 col-md-8">
+            <h3 class="col-xs-8 col-md-8 text-info">
               <%= translation.title %>
             </h3>
           </div>
@@ -34,7 +34,7 @@
       <% end %>
       <div class="card">
         <div class="card-block">
-          <h3 class="text-center">
+          <h3 class="text-center text-info">
             <strong>English Transcript</strong>
           </h3>
           <%= post.transcript %>
@@ -47,12 +47,12 @@
 <% unless @category.documents.blank? %>
 <div class="card">
   <div class="card-block">
-    <h3 class="text-center">
+    <h3 class="text-center text-info">
       <strong>Documents</strong>
     </h3>
     <% @category.documents.each do |doc| %>
     <div>
-      <%= link_to doc.title, category_document_path(@category, doc) %>
+      <%= link_to doc.title, document_path(doc) %>
     </div>
     <% end %>
   </div>
