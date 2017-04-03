@@ -2,11 +2,15 @@
 
 <% @categories.each do |category| %>
 <% unless category.documents.blank? %>
-<h3 class="text-center text-info"><%= category.name %></h3>
-<% category.documents.each do |document| %>
-<h4>
-  <%= link_to document.title, document_path(document) %>
-</h4>
-<% end %>
-<% end %>
+<div class="card ml-2 mr-2 mb-2">
+  <div class="card-block">
+    <h3 class="text-center text-info"><%= category.name %></h3>
+    <% category.documents.each do |document| %>
+    <h4>
+      <%= link_to document.title, document_path(document) %>
+    </h4>
+    <% end %>
+    <% end %>
+  </div>
+</div>
 <% end %>

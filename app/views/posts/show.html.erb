@@ -35,9 +35,9 @@
       <div class="card">
         <div class="card-block">
           <h3 class="text-center text-info">
-            Transcript
+            <%= transcript.title %>
           </h3>
-          <%= transcript.text %>
+          <%= transcript.text.html_safe %>
         </div>
       </div>
       <% end %>

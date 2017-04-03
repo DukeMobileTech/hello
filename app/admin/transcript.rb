@@ -11,11 +11,25 @@ ActiveAdmin.register Transcript do
     actions
   end
 
+  show do
+    attributes_table do
+      row :id
+      row :post
+      row :title
+      row :language
+      row :updated_at
+      row :created_at
+      row :text do |transcript|
+        transcript.text.html_safe
+      end
+    end
+  end
+
   form do |f|
     f.inputs 'Transcript', multipart: true do
       f.input :title
       f.input :language, collection: LanguageList::ALL_LANGUAGES.map(&:name).sort
-      f.input :text
+      f.input :text, as: :ckeditor
     end
     f.actions
   end

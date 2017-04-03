@@ -9,10 +9,10 @@
     </h3>
     <% @category.posts.each do |post| %>
     <div class="row">
-      <label class="col-sm-4">
+      <label class="col-xs-6 col-md-6 text-center">
         <%= post.languages.blank? ? link_to(post.title, category_post_path(@category, post)) : post.title %>
       </label>
-      <label class="col-sm-8">
+      <label class="col-xs-6 col-md-6 text-left">
         <% post.languages.each do |language| %>
         <span>
           <%= link_to language, category_post_path(@category, post, language: language) %>
