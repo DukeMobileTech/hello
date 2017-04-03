@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Hello</title>
+    <title>Hello Durham</title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -10,22 +10,32 @@
   </head>
 
   <body>
-    <!-- <nav class="navbar navbar-default navbar-fixed-top">
-      <h1 class="container">
-        <%#= link_to 'The Hello Project', root_path %>
-      </h1>
-    </nav> -->
-    <!-- Just an image -->
-    <nav class="navbar navbar-light bg-faded">
-      <a class="img-responsive" href="<%= root_path %>">
-        <img src="<%= asset_path( 'logo.png' ) %>">
+    <nav class="navbar navbar-toggleable-md navbar-inverse">
+      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <a class="navbar-brand" href="<%= root_path %>">
+        <!-- <img src="<%#= asset_path( 'logo.png' ) %>"> -->
+        Hello Durham
       </a>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="#">Link</a>
+          </li>
+        </ul>
+      </div>
     </nav>
+
     <div class="container">
       <%= yield %>
     </div>
-    <!-- <footer class="footer">
-      <div class="container">Footer Content</div>
-    </footer> -->
+
+    <footer class="footer">
+      <div class="container">
+        <span class="text-muted">Footer Content</span>
+      </div>
+    </footer>
   </body>
 </html>
