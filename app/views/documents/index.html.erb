@@ -5,12 +5,25 @@
 <div class="card ml-2 mr-2 mb-2">
   <div class="card-block">
     <h3 class="text-center text-info"><%= category.name %></h3>
-    <% category.documents.each do |document| %>
-    <h4>
-      <%= link_to document.title, document_path(document) %>
-    </h4>
-    <% end %>
-    <% end %>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Title</th>
+          <th>Language</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% category.documents.each do |document| %>
+        <tr>
+          <td><%= link_to document.title, document_path(document) %></td>
+          <td><%= document.language %></td>
+          <td><%= document.description %></td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
   </div>
 </div>
+<% end %>
 <% end %>
