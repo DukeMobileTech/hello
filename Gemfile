@@ -5,6 +5,8 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
+# Ruby version
+ruby '2.3.1'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.0.1'
 # Use pg as the database for Active Record
@@ -44,7 +46,7 @@ gem 'language_list', '~> 1.1'
 gem 'aws-sdk', '~> 2.8', '>= 2.8.7'
 gem 'devise', '~> 4.2'
 gem 'devise_invitable', '~> 1.5', '>= 1.5.5'
-gem 'ckeditor', '~> 4.2'
+gem 'ckeditor', github: 'galetahub/ckeditor'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

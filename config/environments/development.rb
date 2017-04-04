@@ -61,4 +61,6 @@ Rails.application.configure do
     user_name: ENV['SMTP_USERNAME'],
     password: ENV['SMTP_PASSWORD']
   }
+
+  config.assets.precompile += %w(ckeditor/*)
 end
