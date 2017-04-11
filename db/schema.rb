@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170403175128) do
+ActiveRecord::Schema.define(version: 20170409175151) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -107,12 +107,16 @@ ActiveRecord::Schema.define(version: 20170403175128) do
     t.string   "title"
     t.integer  "category_id"
     t.string   "video_meta"
-    t.datetime "created_at",         null: false
-    t.datetime "updated_at",         null: false
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
     t.string   "video_file_name"
     t.string   "video_content_type"
     t.integer  "video_file_size"
     t.datetime "video_updated_at"
+    t.string   "subtitle_file_name"
+    t.string   "subtitle_content_type"
+    t.integer  "subtitle_file_size"
+    t.datetime "subtitle_updated_at"
   end
 
   create_table "transcripts", force: :cascade do |t|

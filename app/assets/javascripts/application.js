@@ -17,4 +17,5 @@
 //= require turbolinks
 //= require bootstrap3_player
 //= require ckeditor/init
+//= require flowplayer
 //= require_tree .
