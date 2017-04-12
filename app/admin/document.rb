@@ -36,7 +36,7 @@ ActiveAdmin.register Document do
       f.input :language, collection: LanguageList::ALL_LANGUAGES.map(&:name).sort
       f.input :title
       f.input :description
-      f.input :doc_file, as: :file
+      f.input :doc_file, as: :file, hint: (f.object.doc_file_file_name ? content_tag(:span, "Current File Name: #{f.object.doc_file_file_name}") : content_tag(:span, 'No document'))
     end
     f.actions
   end

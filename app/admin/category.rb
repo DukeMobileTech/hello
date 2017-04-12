@@ -33,7 +33,7 @@ ActiveAdmin.register Category do
   form do |f|
     f.inputs 'Category Details', multipart: true do
       f.input :name, label: 'Name'
-      f.input :pictogram, as: :file
+      f.input :pictogram, as: :file, hint: (f.object.pictogram_file_name ? image_tag(f.object.pictogram.url(:thumb)) : content_tag(:span, 'No Pictogram'))
     end
     f.actions
   end

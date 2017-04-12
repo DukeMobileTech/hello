@@ -28,19 +28,19 @@ ActiveAdmin.register Post do
       row 'Number of speech transcripts' do |post|
         post.transcripts.size
       end
-      row :video_updated_at
+      row :video_file_name
       row :video do |post|
         post.video ? video_tag(post.video.url, controls: true) : content_tag(:span, 'No Video')
       end
-      row :subtitle_updated_at
+      row :subtitle_file_name
     end
   end
 
   form do |f|
     f.inputs 'Post', multipart: true do
       f.input :title, label: 'Title'
-      f.input :video, as: :file
-      f.input :subtitle, as: :file
+      f.input :video, as: :file, hint: (f.object.video_file_name ? video_tag(post.video.url, size: '100x75') : 'No video')
+      f.input :subtitle, as: :file, hint: (f.object.subtitle_file_name ? content_tag(:span, "Current File Name: #{f.object.subtitle_file_name}") : content_tag(:span, 'No subtitle'))
     end
     f.actions
   end
