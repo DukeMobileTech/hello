@@ -1,28 +1,33 @@
 <% content_for :title, @category.name %>
-<h3 class="text-center text-info">
-  <%= @post.title %>
-</h3>
-<div class="card">
+<div class="row post-header">
+  <div class="col-xs-12 col-md-7">
+    <div class="post-title">
+      <%= @translations.try(:first).try(:title) %>
+    </div>
+  </div>
+  <div class="col-xs-12 col-md-5">
+    <div class="text-info text-right">
+      <% (@post.languages - [@translations.try(:first).try(:language)]).each do |lang| %>
+      <div class="btn btn-outline-info">
+        <%= link_to Settings.languages.rassoc(lang).first, category_post_path(@category, @post, language: lang) %>
+      </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+<div class="box-block">
   <div class="row">
     <div class="col-xs-12 col-md-8">
-      <div class="card-block">
-        <div class="flowplayer custom-subtitles fp-playful is-splash" data-ratio="0.5625" data-embed="false" data-facebook="true">
-          <video class="embed-responsive-item" controls crossorigin>
-            <source src="<%= @post.video.url(:medium) %>" type="<%= @post.video_content_type %>">
-            <track label="English" kind="subtitles" srclang="en" src="<%= @post.subtitle.url %>" default="true"></video>
-          </div>
+      <div class="flowplayer custom-subtitles fp-playful" data-ratio="0.5625" data-embed="false" data-facebook="true">
+        <video controls crossorigin>
+          <source src="<%= @post.video.url(:medium) %>" type="<%= @post.video_content_type %>">
+          <track label="English" kind="subtitles" srclang="en" src="<%= @post.subtitle.url %>" default="true"></video>
         </div>
       </div>
       <div class="col-xs-12 col-md-4">
         <% @translations.each do |translation| %>
-        <h3 class="text-center text-info mt-1">
-          <strong><%= Settings.languages.rassoc(translation.language).first %></strong>
-        </h3>
         <div class="card mb-2">
           <div class="card-block">
-            <h3 class="text-center text-info">
-              <%= translation.title %>
-            </h3>
             <div class="row col-xs-12">
               <audio controls>
                 <source src="<%= translation.audio.url %>" type="<%= translation.audio_content_type %>"/>
@@ -32,11 +37,8 @@
         </div>
         <% end %>
         <% @transcripts.each do |transcript| %>
-        <div class="card">
+        <div class="card transcript-box">
           <div class="card-block">
-            <h3 class="text-center text-info">
-              <%= transcript.title %>
-            </h3>
             <%= transcript.text.html_safe %>
           </div>
         </div>

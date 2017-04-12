@@ -1,11 +1,11 @@
 <% content_for :title, @category.name %>
 <% unless @category.posts.blank? %>
+<div class="row post-header">
+  <div class="col-xs-12 subtitle">Videos</div>
+</div>
 <div class="box-block">
-  <h3 class="text-center text-info">
-    <strong>Videos</strong>
-  </h3>
   <% @category.posts.each do |post| %>
-  <h4><%= post.title %></h4>
+  <div class="subtitle"><%= post.title %></div>
   <div class="row">
     <% post.languages.each do |language| %>
     <div class="col-xs-12 col-md-3">
@@ -18,15 +18,25 @@
       </div>
     </div>
     <% end %>
+    <% if post.languages.blank? %>
+    <div class="col-xs-12 col-md-3">
+      <div class="text-info">English</div>
+      <%= link_to video_tag(post.video.url, height: '150', width: '200'), category_post_path(@category, post) %>
+      <div>
+        <%= post.title %>
+      </div>
+    </div>
+    <% end %>
   </div>
   <% end %>
 </div>
 <% end %>
+
 <% unless @category.documents.blank? %>
+<div class="row post-header">
+  <div class="col-xs-12 subtitle">Documents</div>
+</div>
 <div class="box-block">
-  <h3 class="text-center text-info">
-    <strong>Documents</strong>
-  </h3>
   <% @category.documents.each do |doc| %>
   <div>
     <%= link_to doc.title, document_path(doc) %>

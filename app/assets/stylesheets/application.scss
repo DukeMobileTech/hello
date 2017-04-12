@@ -18,8 +18,8 @@
  @import "skin";
 
 $body-background-color: #F0F0F0;
-$header-background-color: #FEC433;
-$footer-background-color: #CCD53F;
+$header-background-color: white;
+$footer-background-color: white;
 $footer-height: 50px;
 $black-text-color: #000;
 $subtitle-color: #74BBB3;
@@ -35,6 +35,7 @@ body {
   background-color: $body-background-color;
   margin-bottom: $footer-height;
   font-size: 16px;
+  font-family: Roboto;
 }
 
 audio {
@@ -51,6 +52,10 @@ audio {
 
 .tab-block {
   margin: 5px;
+}
+
+.separator {
+  height: 10px;
 }
 
 .footer {
@@ -80,10 +85,6 @@ audio {
   overflow: hidden;
 }
 
-.flowplayer {
-  background-color: $video-splash-background-color;
-}
-
 .flowplayer.custom-subtitles .fp-captions {
   text-align: center;
   bottom: 40px;
@@ -94,10 +95,6 @@ audio {
   text-shadow: 0 0 2px #000;
 }
  
-.flowplayer.fp-slim.is-splash {
-  background-color: #8a0707;
-}
-
 .box-block {
   background-color: white;
   padding: 5px;
@@ -114,4 +111,27 @@ audio {
   font-weight: 300;
   font-style: normal;
   vertical-align: middle;
+}
+
+.transcript-box {
+  max-height: 350px;
+  overflow-y: scroll;
+}
+
+.post-header {
+  margin-top: 2px;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+.post-title {
+  position: absolute;
+  bottom: 0;
+  font-size: 20px;
+  color: $subtitle-color;
+}
+
+.subtitle {
+  font-size: 20px;
+  color: $subtitle-color;
 }
