@@ -43,4 +43,8 @@ class Post < ApplicationRecord
   def languages
     (translations.pluck(:language) + transcripts.pluck(:language)).uniq
   end
+
+  def translation_by_language(lang)
+    translations.where(language: lang).try(:first)
+  end
 end

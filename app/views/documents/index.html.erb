@@ -1,5 +1,4 @@
-<h1 class="text-center">Documents</h1>
-
+<% content_for :title, 'Documents' %>
 <% @categories.each do |category| %>
 <% unless category.documents.blank? %>
 <div class="card ml-2 mr-2 mb-2">

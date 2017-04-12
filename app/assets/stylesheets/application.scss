@@ -17,13 +17,14 @@
  @import "bootstrap3_player";
  @import "skin";
 
-$body-background-color: #FDFCF2;
+$body-background-color: #F0F0F0;
 $header-background-color: #FEC433;
 $footer-background-color: #CCD53F;
 $footer-height: 50px;
 $black-text-color: #000;
 $subtitle-color: #74BBB3;
 $video-splash-background-color: #55ba57;
+$page-title-background-color: #01A2A6;
 
 html {
   position: relative;
@@ -95,4 +96,22 @@ audio {
  
 .flowplayer.fp-slim.is-splash {
   background-color: #8a0707;
+}
+
+.box-block {
+  background-color: white;
+  padding: 5px;
+  margin: 5px;
+}
+
+.page-title {
+  background-color: $page-title-background-color;
+  color: white;
+  height: 40px;
+  font-family: 'Poppins', Arial, Helvetica, 'Nimbus Sans L', sans-serif;
+  font-size: 28px;
+  line-height: 36px;
+  font-weight: 300;
+  font-style: normal;
+  vertical-align: middle;
 }

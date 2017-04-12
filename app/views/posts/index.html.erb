@@ -1,40 +1,36 @@
-<h1 class="text-center">
-  <%= @category.name %>
-</h1>
+<% content_for :title, @category.name %>
 <% unless @category.posts.blank? %>
-<div class="card mb-5">
-  <div class="card-block">
-    <h3 class="text-center text-info">
-      <strong>Videos</strong>
-    </h3>
-    <% @category.posts.each do |post| %>
-    <div class="row">
-      <label class="col-xs-6 col-md-6 text-center">
-        <%= post.languages.blank? ? link_to(post.title, category_post_path(@category, post)) : post.title %>
-      </label>
-      <label class="col-xs-6 col-md-6 text-left">
-        <% post.languages.each do |language| %>
-        <span>
-          <%= link_to Settings.languages.rassoc(language).first, category_post_path(@category, post, language: language) %>
-        </span>
-        <% end %>
-      </label>
+<div class="box-block">
+  <h3 class="text-center text-info">
+    <strong>Videos</strong>
+  </h3>
+  <% @category.posts.each do |post| %>
+  <h4><%= post.title %></h4>
+  <div class="row">
+    <% post.languages.each do |language| %>
+    <div class="col-xs-12 col-md-3">
+      <div class="text-info">
+        <%= Settings.languages.rassoc(language).first %>
+      </div>
+      <%= link_to video_tag(post.video.url, height: '150', width: '200'), category_post_path(@category, post, language: language) %>
+      <div>
+        <%= post.translation_by_language(language).try(:title) %>
+      </div>
     </div>
     <% end %>
   </div>
+  <% end %>
 </div>
 <% end %>
 <% unless @category.documents.blank? %>
-<div class="card mb-5">
-  <div class="card-block">
-    <h3 class="text-center text-info">
-      <strong>Documents</strong>
-    </h3>
-    <% @category.documents.each do |doc| %>
-    <div>
-      <%= link_to doc.title, document_path(doc) %>
-    </div>
-    <% end %>
+<div class="box-block">
+  <h3 class="text-center text-info">
+    <strong>Documents</strong>
+  </h3>
+  <% @category.documents.each do |doc| %>
+  <div>
+    <%= link_to doc.title, document_path(doc) %>
   </div>
+  <% end %>
 </div>
 <% end %>
