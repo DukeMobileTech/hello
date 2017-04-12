@@ -27,7 +27,7 @@ ActiveAdmin.register Translation do
   form do |f|
     f.inputs 'Translation', multipart: true do
       f.input :title
-      f.input :language, collection: LanguageList::ALL_LANGUAGES.map(&:name).sort
+      f.input :language, collection: Settings.languages
       f.input :audio, as: :file, hint: (f.object.audio_file_name ? content_tag(:span, "Current File Name: #{f.object.audio_file_name}") : content_tag(:span, 'No audio'))
     end
     f.actions

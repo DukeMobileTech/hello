@@ -15,7 +15,7 @@
       <label class="col-xs-6 col-md-6 text-left">
         <% post.languages.each do |language| %>
         <span>
-          <%= link_to language, category_post_path(@category, post, language: language) %>
+          <%= link_to Settings.languages.rassoc(language).first, category_post_path(@category, post, language: language) %>
         </span>
         <% end %>
       </label>

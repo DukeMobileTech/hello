@@ -28,7 +28,7 @@ ActiveAdmin.register Transcript do
   form do |f|
     f.inputs 'Transcript', multipart: true do
       f.input :title
-      f.input :language, collection: LanguageList::ALL_LANGUAGES.map(&:name).sort
+      f.input :language, collection: Settings.languages
       f.input :text, as: :ckeditor
     end
     f.actions

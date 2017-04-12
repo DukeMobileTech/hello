@@ -23,4 +23,7 @@
 # Ignore OS files
 *.DS_Store
 
-
+# Ignore local configurations
+config/settings.local.yml
+config/settings/*.local.yml
+config/environments/*.local.yml

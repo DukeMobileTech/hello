@@ -99,7 +99,11 @@ GEM
       execjs
     coffee-script-source (1.12.2)
     concurrent-ruby (1.0.5)
+    config (1.4.0)
+      activesupport (>= 3.0)
+      deep_merge (~> 1.1.1)
     debug_inspector (0.0.2)
+    deep_merge (1.1.1)
     devise (4.2.0)
       bcrypt (~> 3.0)
       orm_adapter (~> 0.1)
@@ -148,7 +152,6 @@ GEM
       activerecord
       kaminari-core (= 1.0.1)
     kaminari-core (1.0.1)
-    language_list (1.1.0)
     listen (3.0.8)
       rb-fsevent (~> 0.9, >= 0.9.4)
       rb-inotify (~> 0.9, >= 0.9.7)
@@ -271,12 +274,12 @@ DEPENDENCIES
   byebug
   ckeditor!
   coffee-rails (~> 4.2)
+  config (~> 1.0)
   devise (~> 4.2)
   devise_invitable (~> 1.5, >= 1.5.5)
   inherited_resources (~> 1.7)
   jbuilder (~> 2.5)
   jquery-rails
-  language_list (~> 1.1)
   listen (~> 3.0.5)
   paperclip (~> 5.1.0)
   paperclip-av-transcoder (~> 0.6.4)

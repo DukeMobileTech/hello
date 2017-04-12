@@ -1,0 +1,12 @@
+# ISO 639-1 codes of supported languages
+languages: [
+              ['Arabic', 'ar'],
+              ['Chinese', 'zh'],
+              ['English', 'en'],
+              ['French', 'fr'],
+              ['German', 'de'],
+              ['Lingala', 'ln'],
+              ['Portuguese', 'pt'],
+              ['Spanish', 'es'],
+              ['Swahili', 'sw']
+          ]

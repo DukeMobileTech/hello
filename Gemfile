@@ -42,11 +42,11 @@ gem 'activeadmin', '~> 1.0.0.pre5'
 gem 'bootstrap', '~> 4.0.0.alpha6'
 gem 'annotate', '~> 2.7', '>= 2.7.1'
 gem 'paperclip-av-transcoder', '~> 0.6.4'
-gem 'language_list', '~> 1.1'
 gem 'aws-sdk', '~> 2.8', '>= 2.8.7'
 gem 'devise', '~> 4.2'
 gem 'devise_invitable', '~> 1.5', '>= 1.5.5'
 gem 'ckeditor', github: 'galetahub/ckeditor'
+gem 'config', '~> 1.0'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
