@@ -1,0 +1,20 @@
+# == Schema Information
+#
+# Table name: resources
+#
+#  id         :integer          not null, primary key
+#  post_id    :integer
+#  text       :text
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  category_id: 1
+  text: MyText
+
+two:
+  category_id: 1
+  text: MyText

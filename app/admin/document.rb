@@ -22,6 +22,9 @@ ActiveAdmin.register Document do
       row :id
       row :title
       row :language
+      row :description do |doc|
+        doc.description.html_safe
+      end
       row :updated_at
       row :doc_file do |doc|
         if doc.doc_file_file_size
@@ -35,7 +38,7 @@ ActiveAdmin.register Document do
     f.inputs 'Document Details', multipart: true do
       f.input :language, collection: Settings.languages
       f.input :title
-      f.input :description
+      f.input :description, as: :ckeditor
       f.input :doc_file, as: :file, hint: (f.object.doc_file_file_name ? content_tag(:span, "Current File Name: #{f.object.doc_file_file_name}") : content_tag(:span, 'No document'))
     end
     f.actions

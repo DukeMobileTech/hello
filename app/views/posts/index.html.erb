@@ -1,7 +1,7 @@
 <% content_for :title, @category.name %>
 <% unless @category.posts.blank? %>
 <div class="row post-header">
-  <div class="col-xs-12 subtitle">Videos</div>
+  <div class="col-xs-12 col-md-12 subtitle text-center">Videos</div>
 </div>
 <div class="box-block">
   <% @category.posts.each do |post| %>
@@ -10,7 +10,7 @@
     <% post.languages.each do |language| %>
     <div class="col-xs-12 col-md-3">
       <div class="text-info">
-        <%= Settings.languages.rassoc(language).first %>
+        <%= get_language language %>
       </div>
       <%= link_to video_tag(post.video.url, height: '150', width: '200'), category_post_path(@category, post, language: language) %>
       <div>
@@ -34,13 +34,36 @@
 
 <% unless @category.documents.blank? %>
 <div class="row post-header">
-  <div class="col-xs-12 subtitle">Documents</div>
+  <div class="col-xs-12 col-md-12 subtitle text-center">Resources</div>
 </div>
 <div class="box-block">
-  <% @category.documents.each do |doc| %>
-  <div>
-    <%= link_to doc.title, document_path(doc) %>
+  <div class="row post-header">
+    <div class="col-xs-12 col-md-12 subtitle text-center">Downloads</div>
   </div>
+  <% @category.documents.each do |doc| %>
+  <div class="row">
+    <span class="col-xs-12 col-md-4">
+      <strong><%= link_to doc.title, document_path(doc) %></strong>
+    </span>
+    <span class="col-xs-12 col-md-8">
+      <%= raw doc.description %>
+    </span>
+  </div>
+  <% end %>
+  <% unless @category.resources.blank? %>
+  <div class="row post-header">
+    <div class="col-xs-12 col-md-12 subtitle text-center">External Resources</div>
+  </div>
+  <% @category.resources.each do |res| %>
+  <div class="row">
+    <span class="col-xs-12 col-md-4">
+      <strong><%= link_to res.post.title, category_post_path(@category, res.post) %></strong>
+    </span>
+    <span class="col-xs-12 col-md-8">
+      <%= raw res.text %>
+    </span>
+  </div>
+  <% end %>
   <% end %>
 </div>
 <% end %>

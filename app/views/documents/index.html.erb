@@ -3,8 +3,12 @@
 <% unless category.documents.blank? %>
 <div class="card ml-2 mr-2 mb-2">
   <div class="card-block">
-    <h3 class="text-center text-info"><%= category.name %></h3>
-    <table class="table table-striped">
+    <div class="row post-header">
+      <div class="col-xs-12 col-md-12 subtitle text-center">
+        <%= category.name %>
+      </div>
+    </div>
+    <table class="table-borderless">
       <thead>
         <tr>
           <th>Title</th>
@@ -16,8 +20,8 @@
         <% category.documents.each do |document| %>
         <tr>
           <td><%= link_to document.title, document_path(document) %></td>
-          <td><%= document.language %></td>
-          <td><%= document.description %></td>
+          <td><%= get_language document.language %></td>
+          <td><%= raw document.description %></td>
         </tr>
         <% end %>
       </tbody>

@@ -25,6 +25,7 @@ class Post < ApplicationRecord
   belongs_to :category
   has_many :transcripts
   has_many :translations
+  has_many :resources
   has_attached_file :video, styles: {
     medium: {
       geometry: '640x480',

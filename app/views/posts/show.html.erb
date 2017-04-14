@@ -9,7 +9,7 @@
     <div class="text-info text-right">
       <% (@post.languages - [@translations.try(:first).try(:language)]).each do |lang| %>
       <div class="btn btn-outline-info">
-        <%= link_to Settings.languages.rassoc(lang).first, category_post_path(@category, @post, language: lang) %>
+        <%= link_to get_language(lang), category_post_path(@category, @post, language: lang) %>
       </div>
       <% end %>
     </div>
