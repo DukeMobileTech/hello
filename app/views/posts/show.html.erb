@@ -21,7 +21,10 @@
       <div class="flowplayer custom-subtitles fp-playful" data-ratio="0.5625" data-embed="false" data-facebook="true">
         <video controls crossorigin>
           <source src="<%= @post.video.url(:medium) %>" type="<%= @post.video_content_type %>">
-          <track label="English" kind="subtitles" srclang="en" src="<%= @post.subtitle.url %>" default="true"></video>
+          <% unless @post.subtitle_file_size.nil? %>
+          <track label="English" kind="subtitles" srclang="en" src="<%= @post.subtitle.url %>" default="true">
+            <% end %>
+          </video>
         </div>
       </div>
       <div class="col-xs-12 col-md-4">
