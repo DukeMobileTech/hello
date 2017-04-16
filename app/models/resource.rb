@@ -11,5 +11,6 @@
 
 # For posting external links
 class Resource < ApplicationRecord
+  default_scope { order(updated_at: :desc) }
   belongs_to :post
 end

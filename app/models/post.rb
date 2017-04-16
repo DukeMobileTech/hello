@@ -22,6 +22,7 @@
 # Need to install ffmpeg inorder for video upload to work
 # Use buildpacks in Heroku to install ffmpeg
 class Post < ApplicationRecord
+  default_scope { order(updated_at: :desc) }
   belongs_to :category
   has_many :transcripts
   has_many :translations
