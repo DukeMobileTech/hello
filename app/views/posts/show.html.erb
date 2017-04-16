@@ -1,17 +1,19 @@
 <% content_for :title, @category.name %>
-<div class="row post-header">
-  <div class="col-xs-12 col-md-7">
-    <div class="post-title">
-      <%= @translations.try(:first).try(:title) %>
-    </div>
-  </div>
-  <div class="col-xs-12 col-md-5">
-    <div class="text-info text-right">
-      <% (@post.languages - [@translations.try(:first).try(:language)]).each do |lang| %>
-      <div class="btn btn-outline-info">
-        <%= link_to get_language(lang), category_post_path(@category, @post, language: lang) %>
+<div class="post-header">
+  <div class="row">
+    <div class="col-xs-12 col-md-7">
+      <div class="post-title dark-text">
+        <%= @translations.try(:first).try(:title) %>
       </div>
-      <% end %>
+    </div>
+    <div class="col-xs-12 col-md-5">
+      <div class="text-info text-right">
+        <% (@post.languages - [@translations.try(:first).try(:language)]).each do |lang| %>
+        <div class="btn btn-info">
+          <%= link_to get_language(lang), category_post_path(@category, @post, language: lang) %>
+        </div>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>
