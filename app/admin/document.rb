@@ -43,4 +43,8 @@ ActiveAdmin.register Document do
     end
     f.actions
   end
+
+  controller do
+    cache_sweeper :document_sweeper, :post_sweeper
+  end
 end

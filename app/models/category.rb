@@ -12,12 +12,12 @@
 #  pictogram_updated_at   :datetime
 #
 
-# Tab
+# Home page tab
 class Category < ApplicationRecord
-  has_many :posts
-  has_many :translations, through: :posts
-  has_many :documents
-  has_many :resources, through: :posts
+  has_many :posts, dependent: :destroy
+  has_many :translations, through: :posts, dependent: :destroy
+  has_many :documents, dependent: :destroy
+  has_many :resources, through: :posts, dependent: :destroy
   has_attached_file :pictogram, styles: {
     medium: '300x300>',
     thumb: '100x100>'

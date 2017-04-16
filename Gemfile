@@ -47,6 +47,11 @@ gem 'devise', '~> 4.2'
 gem 'devise_invitable', '~> 1.5', '>= 1.5.5'
 gem 'ckeditor', github: 'galetahub/ckeditor'
 gem 'config', '~> 1.0'
+gem 'rails-observers', github: 'rails/rails-observers'
+gem 'actionpack-action_caching', '~> 1.1', '>= 1.1.1'
+gem 'dalli', '~> 2.7', '>= 2.7.6'
+gem 'connection_pool', '~> 2.2'
+
 #
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

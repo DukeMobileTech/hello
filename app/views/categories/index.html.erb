@@ -3,12 +3,14 @@
   <% @categories.each_slice(3) do |categories| %>
   <div class="row">
     <% categories.each do |category| %>
+    <% cache category do %>
     <div class="col-xs-12 col-sm-12 col-md-4">
       <%= link_to (image_tag category.pictogram.url(:medium), class: 'img-fluid mx-auto d-block rounded card-img-top'), category_posts_path(category.id) %>
       <h4 class="text-center dark-text">
         <small><%= category.name %></small>
       </h4>
     </div>
+    <% end %>
     <% end %>
   </div>
   <% end %>

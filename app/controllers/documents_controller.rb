@@ -1,4 +1,6 @@
 class DocumentsController < ApplicationController
+  caches_action :index, :show
+
   def index
     @categories = Category.includes(:documents)
   end

@@ -1,6 +1,7 @@
 <% content_for :title, 'Documents' %>
 <% @categories.each do |category| %>
 <% unless category.documents.blank? %>
+<% cache category do %>
 <div class="card ml-2 mr-2 mb-2">
   <div class="card-block">
     <div class="row post-header">
@@ -18,15 +19,18 @@
       </thead>
       <tbody>
         <% category.documents.each do |document| %>
+        <% cache document do %>
         <tr>
           <td><%= link_to document.title, document_path(document) %></td>
           <td><%= get_language document.language %></td>
           <td><%= raw document.description %></td>
         </tr>
         <% end %>
+        <% end %>
       </tbody>
     </table>
   </div>
 </div>
+<% end %>
 <% end %>
 <% end %>

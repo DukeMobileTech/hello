@@ -5,6 +5,7 @@
 </div>
 <div class="box-block">
   <% @category.posts.each do |post| %>
+  <% cache post do %>
   <div class="subtitle"><%= post.title %></div>
   <div class="row">
     <% post.languages.each do |language| %>
@@ -29,6 +30,7 @@
     <% end %>
   </div>
   <% end %>
+  <% end %>
 </div>
 <% end %>
 
@@ -41,6 +43,7 @@
     <div class="col-xs-12 col-md-12 subtitle text-center">Downloads</div>
   </div>
   <% @category.documents.each do |doc| %>
+  <% cache doc do %>
   <div class="row">
     <span class="col-xs-12 col-md-4">
       <strong><%= link_to doc.title, document_path(doc) %></strong>
@@ -50,11 +53,13 @@
     </span>
   </div>
   <% end %>
+  <% end %>
   <% unless @category.resources.blank? %>
   <div class="row post-header">
     <div class="col-xs-12 col-md-12 subtitle text-center">External Resources</div>
   </div>
   <% @category.resources.each do |res| %>
+  <% cache res do %>
   <div class="row">
     <span class="col-xs-12 col-md-4">
       <strong><%= link_to res.post.title, category_post_path(@category, res.post) %></strong>
@@ -63,6 +68,7 @@
       <%= raw res.text %>
     </span>
   </div>
+  <% end %>
   <% end %>
   <% end %>
 </div>

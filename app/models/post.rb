@@ -23,10 +23,10 @@
 # Use buildpacks in Heroku to install ffmpeg
 class Post < ApplicationRecord
   default_scope { order(updated_at: :desc) }
-  belongs_to :category
-  has_many :transcripts
-  has_many :translations
-  has_many :resources
+  belongs_to :category, touch: true
+  has_many :transcripts, dependent: :destroy
+  has_many :translations, dependent: :destroy
+  has_many :resources, dependent: :destroy
   has_attached_file :video, styles: {
     medium: {
       geometry: '640x480',

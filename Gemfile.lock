@@ -6,6 +6,13 @@ GIT
       cocaine
       orm_adapter (~> 0.5.0)
 
+GIT
+  remote: https://github.com/rails/rails-observers.git
+  revision: 7d3c9c331242d58ed8ebdbd2eff1f7d6f68a1b2c
+  specs:
+    rails-observers (0.1.3.alpha)
+      activemodel (>= 4.0, < 5.1)
+
 GEM
   remote: https://rubygems.org/
   remote: https://rails-assets.org/
@@ -27,6 +34,8 @@ GEM
       rack-test (~> 0.6.3)
       rails-dom-testing (~> 2.0)
       rails-html-sanitizer (~> 1.0, >= 1.0.2)
+    actionpack-action_caching (1.2.0)
+      actionpack (>= 4.0.0, < 6)
     actionview (5.0.2)
       activesupport (= 5.0.2)
       builder (~> 3.1)
@@ -102,6 +111,8 @@ GEM
     config (1.4.0)
       activesupport (>= 3.0)
       deep_merge (~> 1.1.1)
+    connection_pool (2.2.1)
+    dalli (2.7.6)
     debug_inspector (0.0.2)
     deep_merge (1.1.1)
     devise (4.2.0)
@@ -264,6 +275,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  actionpack-action_caching (~> 1.1, >= 1.1.1)
   activeadmin (~> 1.0.0.pre5)
   annotate (~> 2.7, >= 2.7.1)
   aws-sdk (~> 2.8, >= 2.8.7)
@@ -272,6 +284,8 @@ DEPENDENCIES
   ckeditor!
   coffee-rails (~> 4.2)
   config (~> 1.0)
+  connection_pool (~> 2.2)
+  dalli (~> 2.7, >= 2.7.6)
   devise (~> 4.2)
   devise_invitable (~> 1.5, >= 1.5.5)
   inherited_resources (~> 1.7)
@@ -284,6 +298,7 @@ DEPENDENCIES
   puma (~> 3.0)
   rails (~> 5.0.1)
   rails-assets-tether (>= 1.3.3)!
+  rails-observers!
   sass-rails (~> 5.0)
   spring
   spring-watcher-listen (~> 2.0.0)

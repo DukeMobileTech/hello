@@ -13,5 +13,5 @@
 
 # Transcripts for post's video in different languages
 class Transcript < ApplicationRecord
-  belongs_to :post
+  belongs_to :post, touch: true
 end
