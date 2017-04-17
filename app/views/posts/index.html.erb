@@ -20,6 +20,9 @@
       </div>
       <% end %>
       <% end %>
+      <% if !post.languages.empty? && !post.languages.include?('en') %>
+      <div><%= link_to post.title, language_category_post_path(@category, post, 'en') %></div>
+      <% end %>
       <div>
         <%= video_tag(post.video.url, height: '225', width: '300') %>
       </div>

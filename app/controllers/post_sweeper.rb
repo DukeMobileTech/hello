@@ -14,7 +14,7 @@ class PostSweeper < ActionController::Caching::Sweeper
   def after_update(record)
     if record.instance_of? Post
       expire_action(controller: '/posts', action: %w(index))
-      record.languages.each do |lang|
+      post_languages(record).each do |lang|
         expire_action(controller: '/posts', action: %w(language), id: record.id, category_id: record.category_id, language: lang)
       end
     else
@@ -26,12 +26,18 @@ class PostSweeper < ActionController::Caching::Sweeper
   def after_destroy(record)
     if record.instance_of? Post
       expire_action(controller: '/posts', action: %w(index))
-      record.languages.each do |lang|
+      post_languages(record).each do |lang|
         expire_action(controller: '/posts', action: %w(language), id: record.id, category_id: record.category_id, language: lang)
       end
     else
       expire_action(controller: '/posts', action: %w(index), category_id: record.post.category_id)
       expire_action(controller: '/posts', action: %w(language), id: record.post.id, category_id: record.post.category.id, language: record.language)
     end
+  end
+
+  def post_languages(record)
+    langs = record.languages ||= []
+    langs << 'en' unless langs.include? 'en'
+    langs
   end
 end
