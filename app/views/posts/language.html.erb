@@ -1,9 +1,22 @@
 <% content_for :title, @category.name %>
 <div class="post-header">
   <div class="row">
-    <div class="col-xs-12 col-md-12">
+    <div class="col-xs-12 col-md-7">
       <div class="post-title dark-text">
-        <%= @post.title %>
+        <% if @translations.size > 0 %>
+        <%= @translations.first.title %>
+      <% else %>
+        <%= @transcripts.try(:first).try(:title) %>
+        <% end %>
+      </div>
+    </div>
+    <div class="col-xs-12 col-md-5">
+      <div class="text-info text-right">
+        <% (@post.languages - [@language]).each do |lang| %>
+        <div class="btn btn-info">
+          <%= link_to get_language(lang), language_category_post_path(@category, @post, lang) %>
+        </div>
+        <% end %>
       </div>
     </div>
   </div>
@@ -21,7 +34,7 @@
         </div>
       </div>
       <div class="col-xs-12 col-md-4">
-        <% @post.translations.each do |translation| %>
+        <% @translations.each do |translation| %>
         <% cache translation do %>
         <div class="card mb-2">
           <div class="card-block">
@@ -34,7 +47,7 @@
         </div>
         <% end %>
         <% end %>
-        <% @post.transcripts.each do |transcript| %>
+        <% @transcripts.each do |transcript| %>
         <% cache transcript do %>
         <div class="card transcript-box">
           <div class="card-block">

@@ -4,7 +4,11 @@ Rails.application.routes.draw do
   ActiveAdmin.routes(self)
   root to: 'categories#index'
   resources :categories do
-    resources :posts
+    resources :posts do
+      member do
+        get 'language/:language', action: 'language', as: 'language'
+      end
+    end
   end
   resources :documents
 end

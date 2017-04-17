@@ -2,23 +2,36 @@
 class PostSweeper < ActionController::Caching::Sweeper
   observe Post, Translation, Transcript
 
-  def after_create(_record)
-    expire_action(controller: '/posts', action: %w(index))
+  def after_create(record)
+    if record.instance_of? Post
+      expire_action(controller: '/posts', action: %w(index))
+    else
+      expire_action(controller: '/posts', action: %w(index), category_id: record.post.category_id)
+      expire_action(controller: '/posts', action: %w(language), id: record.post.id, category_id: record.post.category.id, language: record.language)
+    end
   end
 
   def after_update(record)
     if record.instance_of? Post
-      expire_action(controller: '/posts', action: %w(index show))
+      expire_action(controller: '/posts', action: %w(index))
+      record.languages.each do |lang|
+        expire_action(controller: '/posts', action: %w(language), id: record.id, category_id: record.category_id, language: lang)
+      end
     else
-      expire_action(controller: '/posts', action: %w(show), id: record.post.id, category_id: record.post.category.id)
+      expire_action(controller: '/posts', action: %w(index), category_id: record.post.category_id)
+      expire_action(controller: '/posts', action: %w(language), id: record.post.id, category_id: record.post.category.id, language: record.language)
     end
   end
 
   def after_destroy(record)
     if record.instance_of? Post
-      expire_action(controller: '/posts', action: %w(index show))
+      expire_action(controller: '/posts', action: %w(index))
+      record.languages.each do |lang|
+        expire_action(controller: '/posts', action: %w(language), id: record.id, category_id: record.category_id, language: lang)
+      end
     else
-      expire_action(controller: '/posts', action: %w(show), id: record.post.id, category_id: record.post.category.id)
+      expire_action(controller: '/posts', action: %w(index), category_id: record.post.category_id)
+      expire_action(controller: '/posts', action: %w(language), id: record.post.id, category_id: record.post.category.id, language: record.language)
     end
   end
 end
