@@ -47,9 +47,9 @@ class Post < ApplicationRecord
   end
 
   def child_by_language(lang)
-    if !translations.empty?
+    if translations.pluck(:language).include?(lang)
       translations.where(language: lang).try(:first)
-    elsif !transcripts.empty?
+    elsif transcripts.pluck(:language).include?(lang)
       transcripts.where(language: lang).try(:first)
     end
   end
