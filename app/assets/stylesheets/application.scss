@@ -18,8 +18,8 @@
  @import "skin";
 
 $body-background-color: #F0F0F0;
-$header-background-color: white;
-$footer-background-color: white;
+$header-background-color: #F0F0F0;
+$footer-background-color: #F0F0F0;
 $footer-height: 50px;
 $black-text-color: #000;
 $subtitle-color: #74BBB3;
@@ -36,7 +36,6 @@ body {
   margin-bottom: $footer-height;
   font-size: 16px;
   font-family: 'Roboto', sans-serif;
-  background-image: image-url('background.png');
 }
 
 audio {
@@ -45,7 +44,6 @@ audio {
 
 .navbar {
     background-color: $header-background-color;
-    background-image: image-url('background.png');
 }
 
 .navbar-brand {
@@ -55,7 +53,14 @@ audio {
 .navbar-light .navbar-nav .nav-link {
   font-size: 20px;
   color: $black-text-color;
-  font-weight: bold; 
+  font-weight: normal; 
+  font-family: 'Raleway', sans-serif;
+}
+
+.btn-outline-secondary:hover, .btn-outline-secondary:focus, .btn-outline-secondary:active, .btn-outline-secondary.active, .open>.dropdown-toggle.btn-outline-secondary {
+  background-image: none !important;
+  background-color: $page-title-background-color !important;
+  border-color: $header-background-color !important;
 }
 
 nav a, a:visited, a:hover, a:link, a:active {
@@ -78,7 +83,6 @@ nav a, a:visited, a:hover, a:link, a:active {
   height: $footer-height;
   line-height: $footer-height; /* Vertically center the text there */
   background-color: $footer-background-color;
-  background-image: image-url('background.png');
 }
 
 .navbar-inverse .navbar-brand, .navbar-inverse .navbar-toggler {

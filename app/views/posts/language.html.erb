@@ -9,7 +9,7 @@
     <div class="col-xs-12 col-md-5">
       <div class="text-info text-right">
         <% (@post.languages - [@language]).each do |lang| %>
-        <div class="btn btn-info">
+        <div class="btn btn-outline-secondary btn-sm">
           <%= link_to get_language(lang), language_category_post_path(@category, @post, lang) %>
         </div>
         <% end %>
