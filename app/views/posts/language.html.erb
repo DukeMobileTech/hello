@@ -20,27 +20,31 @@
 <div class="box-block">
   <div class="row">
     <div class="col-xs-12 col-md-8">
+      <% if @post.video_url(:video) %>
       <div class="flowplayer custom-subtitles fp-playful" data-ratio="0.5625" data-embed="false" data-facebook="true">
         <video controls crossorigin>
-          <source src="<%= @post.video.url(:medium) %>" type="<%= @post.video_content_type %>">
-          <% unless @post.subtitle_file_size.nil? %>
-          <track label="English" kind="subtitles" srclang="en" src="<%= @post.subtitle.url %>" default="true">
+          <source src="<%= @post.video_url(:video) %>" type="<%= @post.video[:video].mime_type %>">
+          <% if @post.subtitle.present? %>
+          <track label="English" kind="subtitles" srclang="en" src="<%= @post.subtitle_url %>" default="true">
             <% end %>
           </video>
         </div>
+        <% end %>
       </div>
       <div class="col-xs-12 col-md-4">
         <% @translations.each do |translation| %>
         <% cache translation do %>
+        <% if translation.audio.present? %>
         <div class="card mb-2">
           <div class="card-block">
             <div class="row col-xs-12">
               <audio controls>
-                <source src="<%= translation.audio.url %>" type="<%= translation.audio_content_type %>"/>
+                <source src="<%= translation.audio_url %>" type="<%= translation.audio.metadata['mime_type'] %>"/>
               </audio>
             </div>
           </div>
         </div>
+        <% end %>
         <% end %>
         <% end %>
         <% @transcripts.each do |transcript| %>

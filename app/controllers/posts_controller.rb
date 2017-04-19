@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  caches_action :index, :language
+  # caches_action :index, :language
 
   def index
     @category = Category.includes(:posts, :documents).find(params[:category_id])

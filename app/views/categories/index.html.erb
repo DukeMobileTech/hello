@@ -5,7 +5,9 @@
     <% categories.each do |category| %>
     <% cache category do %>
     <div class="col-xs-12 col-sm-12 col-md-4">
-      <%= link_to (image_tag category.pictogram.url(:medium), class: 'img-fluid mx-auto d-block rounded card-img-top'), category_posts_path(category.id) %>
+      <% if category.pictogram_url(:medium) %>
+      <%= link_to (image_tag category.pictogram_url(:medium), class: 'img-fluid mx-auto d-block rounded card-img-top'), category_posts_path(category.id) %>
+      <% end %>
       <h4 class="text-center dark-text">
         <small><%= category.name %></small>
       </h4>

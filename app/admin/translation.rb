@@ -17,9 +17,8 @@ ActiveAdmin.register Translation do
       row :title
       row :language
       row :updated_at
-      row :audio_updated_at
       row :audio do |translation|
-        translation.audio ? audio_tag(translation.audio.url, controls: true) : content_tag(:span, 'No Audio')
+        translation.audio_url ? audio_tag(translation.audio_url, controls: true) : content_tag(:span, 'No Audio')
       end
     end
   end
@@ -28,12 +27,12 @@ ActiveAdmin.register Translation do
     f.inputs 'Translation', multipart: true do
       f.input :title
       f.input :language, collection: Settings.languages
-      f.input :audio, as: :file, hint: (f.object.audio_file_name ? content_tag(:span, "Current File Name: #{f.object.audio_file_name}") : content_tag(:span, 'No audio'))
+      f.input :audio, as: :file, hint: (f.object.audio_url ? content_tag(:span, "Current File Name: #{f.object.audio.metadata['filename']}") : content_tag(:span, 'No audio'))
     end
     f.actions
   end
 
-  controller do
-    cache_sweeper :post_sweeper
-  end
+  # controller do
+  #   cache_sweeper :post_sweeper
+  # end
 end

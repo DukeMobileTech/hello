@@ -16,9 +16,10 @@
 #
 
 class Document < ApplicationRecord
+  include DocumentUploader::Attachment.new(:doc_file)
   default_scope { order(updated_at: :desc) }
   belongs_to :category, touch: true
-  has_attached_file :doc_file
-  validates_attachment :doc_file, content_type: { content_type: %w(application/pdf application/msword application/vnd.openxmlformats-officedocument.wordprocessingml.document) }
-  validates_attachment_file_name :doc_file, matches: [/pdf\Z/, /docx\Z/, /xlsx\Z/]
+  # has_attached_file :doc_file
+  # validates_attachment :doc_file, content_type: { content_type: %w(application/pdf application/msword application/vnd.openxmlformats-officedocument.wordprocessingml.document) }
+  # validates_attachment_file_name :doc_file, matches: [/pdf\Z/, /docx\Z/, /xlsx\Z/]
 end

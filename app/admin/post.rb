@@ -29,24 +29,38 @@ ActiveAdmin.register Post do
       row 'Number of speech transcripts' do |post|
         post.transcripts.size
       end
-      row :video_file_name
+      # row 'Video File Name' do |post|
+      # post.video.filename
+      # post.video[:video].metadata['filename'] if post.video.present?
+      # end
+      # row :video do |post|
+      #   video_tag(post.video[:video].url)
+      # end
+      # row :video do |post|
+      #   image_tag post.video_url(:screenshot)
+      #   # image_tag(post.video[:screenshot].url) if post.video.present?
+      # end
+
+      # TODO: Play with subtitles
       row :video do |post|
-        post.video ? video_tag(post.video.url, controls: true) : content_tag(:span, 'No Video')
+        post.video_url(:video) ? video_tag(post.video_url(:video), controls: true) : content_tag(:span, 'No Video')
       end
-      row :subtitle_file_name
+      row :subtitle do |post|
+        post.subtitle ? post.subtitle.metadata['filename'] : content_tag(:span, 'No Subtitle File')
+      end
     end
   end
 
   form do |f|
     f.inputs 'Post', multipart: true do
       f.input :title, label: 'Title'
-      f.input :video, as: :file, hint: (f.object.video_file_name ? video_tag(post.video.url, size: '100x75') : 'No video')
-      f.input :subtitle, as: :file, hint: (f.object.subtitle_file_name ? content_tag(:span, "Current File Name: #{f.object.subtitle_file_name}") : content_tag(:span, 'No subtitle'))
+      f.input :video, as: :file, hint: (f.object.video_url(:screenshot) ? image_tag(post.video_url(:screenshot), size: '100x75') : 'No video')
+      f.input :subtitle, as: :file, hint: (f.object.subtitle_url ? content_tag(:span, "Current File Name: #{f.object.subtitle.metadata['filename']}") : content_tag(:span, 'No subtitle'))
     end
     f.actions
   end
 
-  controller do
-    cache_sweeper :post_sweeper
-  end
+  # controller do
+  #   cache_sweeper :post_sweeper
+  # end
 end

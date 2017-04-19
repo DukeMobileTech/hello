@@ -5,7 +5,7 @@ ActiveAdmin.register Document do
   member_action :download, method: :get do
     category = Category.find params[:category_id]
     document = category.documents.find params[:id]
-    redirect_to document.doc_file.expiring_url(10)
+    redirect_to document.doc_file_url
   end
 
   index do
@@ -27,7 +27,7 @@ ActiveAdmin.register Document do
       end
       row :updated_at
       row :doc_file do |doc|
-        if doc.doc_file_file_size
+        if doc.doc_file_url.present?
           link_to 'Download', download_admin_category_document_path(params[:category_id], doc)
         end
       end
@@ -39,12 +39,12 @@ ActiveAdmin.register Document do
       f.input :language, collection: Settings.languages
       f.input :title
       f.input :description, as: :ckeditor
-      f.input :doc_file, as: :file, hint: (f.object.doc_file_file_name ? content_tag(:span, "Current File Name: #{f.object.doc_file_file_name}") : content_tag(:span, 'No document'))
+      f.input :doc_file, as: :file, hint: (f.object.doc_file_url ? content_tag(:span, "Current File Name: #{f.object.doc_file.metadata['filename']}") : content_tag(:span, 'No document'))
     end
     f.actions
   end
 
-  controller do
-    cache_sweeper :document_sweeper, :post_sweeper
-  end
+  # controller do
+  #   cache_sweeper :document_sweeper, :post_sweeper
+  # end
 end

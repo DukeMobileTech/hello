@@ -25,20 +25,20 @@ ActiveAdmin.register Category do
         category.posts.size
       end
       row :pictogram do |category|
-        category.pictogram ? image_tag(category.pictogram.url(:medium)) : content_tag(:span, 'No Pictogram')
+        category.pictogram_url(:medium) ? image_tag(category.pictogram_url(:medium)) : content_tag(:span, 'No Pictogram')
       end
     end
   end
 
   form do |f|
     f.inputs 'Category Details', multipart: true do
-      f.input :name, label: 'Name'
-      f.input :pictogram, as: :file, hint: (f.object.pictogram_file_name ? image_tag(f.object.pictogram.url(:thumb)) : content_tag(:span, 'No Pictogram'))
+      f.input :name
+      f.input :pictogram, as: :file, hint: (f.object.pictogram_url(:medium) ? image_tag(f.object.pictogram_url(:thumb)) : content_tag(:span, 'No Pictogram'))
     end
     f.actions
   end
 
-  controller do
-    cache_sweeper :category_sweeper
-  end
+  # controller do
+  #   cache_sweeper :category_sweeper
+  # end
 end

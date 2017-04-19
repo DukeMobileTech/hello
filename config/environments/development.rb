@@ -61,6 +61,6 @@ Rails.application.configure do
     user_name: ENV['SMTP_USERNAME'],
     password: ENV['SMTP_PASSWORD']
   }
-
   config.assets.precompile += %w(ckeditor/*)
+  config.active_job.queue_adapter = :sucker_punch
 end

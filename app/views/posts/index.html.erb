@@ -24,7 +24,9 @@
       <div><%= link_to post.title, language_category_post_path(@category, post, 'en') %></div>
       <% end %>
       <div>
-        <%= video_tag(post.video.url, height: '225', width: '300') %>
+        <% if post.video_url(:screenshot).present? %>
+        <%= image_tag(post.video_url(:screenshot), height: '225', width: '300') %>
+        <% end %>
       </div>
     </div>
     <% end %>
