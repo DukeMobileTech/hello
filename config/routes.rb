@@ -11,4 +11,8 @@ Rails.application.routes.draw do
     end
   end
   resources :documents
+  concern :paginatable do
+    get '(page/:page)', action: :index, on: :collection, as: ''
+  end
+  get 'videos', to: 'videos#index', concerns: :paginatable
 end

@@ -29,7 +29,7 @@ ActiveAdmin.register Resource do
     end
     f.actions
   end
-  controller do
-    cache_sweeper :resource_sweeper
-  end
+  # controller do
+  #   cache_sweeper :resource_sweeper
+  # end
 end

@@ -34,7 +34,7 @@ ActiveAdmin.register Transcript do
     f.actions
   end
 
-  controller do
-    cache_sweeper :post_sweeper
-  end
+  # controller do
+  #   cache_sweeper :post_sweeper
+  # end
 end

@@ -38,7 +38,7 @@ ActiveAdmin.register Category do
     f.actions
   end
 
-  controller do
-    cache_sweeper :category_sweeper
-  end
+  # controller do
+  #   cache_sweeper :category_sweeper
+  # end
 end
