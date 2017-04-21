@@ -16,6 +16,8 @@
 #  subtitle_content_type :string
 #  subtitle_file_size    :integer
 #  subtitle_updated_at   :datetime
+#  video_data            :text
+#  subtitle_data         :text
 #
 
 require 'test_helper'

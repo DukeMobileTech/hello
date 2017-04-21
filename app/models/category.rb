@@ -10,6 +10,7 @@
 #  pictogram_content_type :string
 #  pictogram_file_size    :integer
 #  pictogram_updated_at   :datetime
+#  pictogram_data         :text
 #
 
 # Home page tab
@@ -17,7 +18,7 @@ class Category < ApplicationRecord
   has_many :posts, dependent: :destroy
   has_many :translations, through: :posts, dependent: :destroy
   has_many :documents, dependent: :destroy
-  has_many :resources, through: :posts, dependent: :destroy
+  has_many :pages, dependent: :destroy
   has_attached_file :pictogram, styles: {
     medium: '300x300>',
     thumb: '100x100>'

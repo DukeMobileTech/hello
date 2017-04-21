@@ -1,0 +1,15 @@
+<% if @tag == 'About' %>
+<% content_for :title, 'About Us' %>
+<% else %>
+<% content_for :title, 'External Links' %>
+<% end %>
+<% @pages.each do |page| %>
+<div class="row post-header">
+  <div class="col-xs-12 col-md-12 subtitle text-center"><%= page.title %></div>
+</div>
+<div class="box-block">
+  <div class="row">
+    <div class="col-xs-12 col-md-12"><%= raw page.text %></div>
+  </div>
+</div>
+<% end %>

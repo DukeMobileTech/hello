@@ -6,7 +6,6 @@ ActiveAdmin.register Post do
     ul do
       li link_to 'Audio Translations', admin_post_translations_path(params[:id])
       li link_to 'Speech Transcripts', admin_post_transcripts_path(params[:id])
-      li link_to 'External Resources/Links', admin_post_resources_path(params[:id])
     end
   end
 

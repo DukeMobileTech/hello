@@ -16,6 +16,8 @@
 #  subtitle_content_type :string
 #  subtitle_file_size    :integer
 #  subtitle_updated_at   :datetime
+#  video_data            :text
+#  subtitle_data         :text
 #
 
 # Post with video
@@ -26,7 +28,6 @@ class Post < ApplicationRecord
   belongs_to :category, touch: true
   has_many :transcripts, dependent: :destroy
   has_many :translations, dependent: :destroy
-  has_many :resources, dependent: :destroy
   has_attached_file :video, styles: {
     medium: {
       geometry: '640x480',

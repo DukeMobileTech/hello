@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170414005023) do
+ActiveRecord::Schema.define(version: 20170421114801) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -75,6 +75,7 @@ ActiveRecord::Schema.define(version: 20170414005023) do
     t.string   "pictogram_content_type"
     t.integer  "pictogram_file_size"
     t.datetime "pictogram_updated_at"
+    t.text     "pictogram_data"
   end
 
   create_table "ckeditor_assets", force: :cascade do |t|
@@ -101,6 +102,16 @@ ActiveRecord::Schema.define(version: 20170414005023) do
     t.string   "doc_file_content_type"
     t.integer  "doc_file_file_size"
     t.datetime "doc_file_updated_at"
+    t.text     "doc_file_data"
+  end
+
+  create_table "pages", force: :cascade do |t|
+    t.integer  "category_id"
+    t.text     "text"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.string   "tag"
+    t.string   "title"
   end
 
   create_table "posts", force: :cascade do |t|
@@ -117,13 +128,8 @@ ActiveRecord::Schema.define(version: 20170414005023) do
     t.string   "subtitle_content_type"
     t.integer  "subtitle_file_size"
     t.datetime "subtitle_updated_at"
-  end
-
-  create_table "resources", force: :cascade do |t|
-    t.integer  "post_id"
-    t.text     "text"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.text     "video_data"
+    t.text     "subtitle_data"
   end
 
   create_table "transcripts", force: :cascade do |t|
@@ -145,6 +151,7 @@ ActiveRecord::Schema.define(version: 20170414005023) do
     t.string   "audio_content_type"
     t.integer  "audio_file_size"
     t.datetime "audio_updated_at"
+    t.text     "audio_data"
   end
 
 end

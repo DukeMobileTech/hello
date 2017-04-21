@@ -10,6 +10,7 @@
 #  pictogram_content_type :string
 #  pictogram_file_size    :integer
 #  pictogram_updated_at   :datetime
+#  pictogram_data         :text
 #
 
 require 'test_helper'

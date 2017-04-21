@@ -12,6 +12,7 @@
 #  audio_content_type :string
 #  audio_file_size    :integer
 #  audio_updated_at   :datetime
+#  audio_data         :text
 #
 
 # Audio translation for post video attachment
