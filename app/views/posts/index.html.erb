@@ -55,18 +55,19 @@
   </div>
   <% end %>
   <% end %>
-  <% unless @category.resources.blank? %>
+
+  <% unless @category.pages.blank? %>
   <div class="row post-header">
     <div class="col-xs-12 col-md-12 subtitle text-center">External Resources</div>
   </div>
-  <% @category.resources.each do |res| %>
-  <% cache res do %>
+  <% @category.pages.each do |page| %>
+  <% cache page do %>
   <div class="row">
     <span class="col-xs-12 col-md-4">
-      <strong><%= link_to res.post.title, category_post_path(@category, res.post) %></strong>
+      <strong><%= link_to page.title, page_path(page) %></strong>
     </span>
     <span class="col-xs-12 col-md-8">
-      <%= raw res.text %>
+      <%= truncate page.text, escape: false %>
     </span>
   </div>
   <% end %>

@@ -16,6 +16,8 @@
 #  subtitle_content_type :string
 #  subtitle_file_size    :integer
 #  subtitle_updated_at   :datetime
+#  video_data            :text
+#  subtitle_data         :text
 #
 
 # Post with video
@@ -28,23 +30,21 @@ class Post < ApplicationRecord
   belongs_to :category, touch: true
   has_many :transcripts, dependent: :destroy
   has_many :translations, dependent: :destroy
-  has_many :resources, dependent: :destroy
-
-  has_attached_file :video, styles: {
-    medium: {
-      geometry: '640x480',
-      format: 'mp4'
-    },
-    thumb: {
-      geometry: '100x100#',
-      format: 'jpg',
-      time: 10
-    }
-  }, processors: [:transcoder]
-  has_attached_file :subtitle
-  include PaperclipShrineSynchronization # needs to be after `has_attached_file`
-  validates_attachment_content_type :video, content_type: %r{\Avideo\/.*\Z}
-  do_not_validate_attachment_file_type :subtitle # TODO: Figure out validations
+  # has_attached_file :video, styles: {
+  #   medium: {
+  #     geometry: '640x480',
+  #     format: 'mp4'
+  #   },
+  #   thumb: {
+  #     geometry: '100x100#',
+  #     format: 'jpg',
+  #     time: 10
+  #   }
+  # }, processors: [:transcoder]
+  # has_attached_file :subtitle
+  # include PaperclipShrineSynchronization # needs to be after `has_attached_file`
+  # validates_attachment_content_type :video, content_type: %r{\Avideo\/.*\Z}
+  # do_not_validate_attachment_file_type :subtitle # TODO: Figure out validations
 
   def languages
     (translations.pluck(:language) + transcripts.pluck(:language)).uniq

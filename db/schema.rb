@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170418151259) do
+ActiveRecord::Schema.define(version: 20170421114801) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -105,6 +105,15 @@ ActiveRecord::Schema.define(version: 20170418151259) do
     t.text     "doc_file_data"
   end
 
+  create_table "pages", force: :cascade do |t|
+    t.integer  "category_id"
+    t.text     "text"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.string   "tag"
+    t.string   "title"
+  end
+
   create_table "posts", force: :cascade do |t|
     t.string   "title"
     t.integer  "category_id"
@@ -121,13 +130,6 @@ ActiveRecord::Schema.define(version: 20170418151259) do
     t.datetime "subtitle_updated_at"
     t.text     "video_data"
     t.text     "subtitle_data"
-  end
-
-  create_table "resources", force: :cascade do |t|
-    t.integer  "post_id"
-    t.text     "text"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "transcripts", force: :cascade do |t|

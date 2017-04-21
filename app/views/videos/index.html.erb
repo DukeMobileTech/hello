@@ -1,0 +1,34 @@
+<% content_for :title, 'Videos' %>
+<% unless @posts.blank? %>
+<div class="box-block">
+  <div class="row">
+    <% @posts.each do |post| %>
+    <% cache post do %>
+    <div class="col-xs-12 col-md-6 text-center">
+      <% if post.languages.empty? %>
+      <div>
+        <%= link_to post.title, language_category_post_path(post.category_id, post, 'en') %>
+      </div>
+      <% end %>
+      <% post.languages.each do |language| %>
+      <% if post.child_by_language(language) %>
+      <div>
+        <%= link_to post.child_by_language(language).title, language_category_post_path(post.category_id, post, language) %>
+      </div>
+      <% end %>
+      <% end %>
+      <% if !post.languages.empty? && !post.languages.include?('en') %>
+      <div><%= link_to post.title, language_category_post_path(post.category_id, post, 'en') %></div>
+      <% end %>
+      <div>
+        <%= video_tag(post.video.url, height: '225', width: '300') %>
+      </div>
+    </div>
+    <% end %>
+    <% end %>
+  </div>
+  <div class="row">
+    <%= paginate @posts %>
+  </div>
+</div>
+<% end %>

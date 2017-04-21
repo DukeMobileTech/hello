@@ -7,6 +7,7 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1">
   </head>
 
@@ -22,7 +23,24 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item">
-            <a class="nav-link" href="<%= documents_path %>">Documents</a>
+            <button class="btn btn-outline-secondary btn-sm" type="button">
+              <a class="nav-link" href="<%= videos_path %>">Videos</a>
+            </button>
+          </li>
+          <li class="nav-item">
+            <button class="btn btn-outline-secondary btn-sm" type="button">
+              <a class="nav-link" href="<%= documents_path %>">Documents</a>
+            </button>
+          </li>
+          <li class="nav-item">
+            <button class="btn btn-outline-secondary btn-sm" type="button">
+              <a class="nav-link" href="<%= pages_path(tag: 'External Links') %>">Links</a>
+            </button>
+          </li>
+          <li class="nav-item">
+            <button class="btn btn-outline-secondary btn-sm" type="button">
+              <a class="nav-link" href="<%= pages_path(tag: 'About') %>">About</a>
+            </button>
           </li>
         </ul>
       </div>

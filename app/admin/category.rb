@@ -5,6 +5,7 @@ ActiveAdmin.register Category do
     ul do
       li link_to 'Posts/Videos', admin_category_posts_path(params[:id])
       li link_to 'Documents', admin_category_documents_path(params[:id])
+      li link_to 'Pages/Links', admin_pages_path(category_id: params[:id])
     end
   end
 
