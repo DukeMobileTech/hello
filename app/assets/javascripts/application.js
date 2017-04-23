@@ -14,6 +14,9 @@
 //= require tether
 //= require bootstrap
 //= require jquery_ujs
+//= require jquery-fileupload/vendor/jquery.ui.widget
+//= require jquery-fileupload/jquery.iframe-transport
+//= require jquery-fileupload/jquery.fileupload
 //= require bootstrap3_player
 //= require ckeditor/init
 //= require flowplayer

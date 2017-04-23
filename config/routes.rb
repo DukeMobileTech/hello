@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
   mount Ckeditor::Engine => '/ckeditor'
-  mount ImageUploader::UploadEndpoint, at: '/attachments/images'
+  mount ImageUploader::UploadEndpoint, at: '/files/upload'
+  mount VideoUploader::UploadEndpoint, at: '/files/upload'
+  mount AudioUploader::UploadEndpoint, at: '/files/upload'
+  mount SubtitleUploader::UploadEndpoint, at: '/files/upload'
+  mount DocumentUploader::UploadEndpoint, at: '/files/upload'
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   root to: 'categories#index'

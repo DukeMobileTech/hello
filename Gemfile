@@ -57,6 +57,7 @@ gem 'mini_magick', '~> 4.7' # Imagemagick
 gem 'sucker_punch', '~> 2.0', '>= 2.0.2'
 gem 'fastimage', '~> 1.8', '>= 1.8.1'
 gem 'roda', '~> 2.24'
+gem 'jquery-fileupload-rails', '~> 0.4.7'
 gem 'streamio-ffmpeg', '~> 3.0', '>= 3.0.2'
 gem 'kaminari', github: 'kaminari/kaminari', branch: '0-17-stable'
 #

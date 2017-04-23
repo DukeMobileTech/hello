@@ -34,7 +34,7 @@ ActiveAdmin.register Category do
   form do |f|
     f.inputs 'Category Details', multipart: true do
       f.input :name
-      f.input :pictogram, as: :file, hint: (f.object.pictogram_url(:medium) ? image_tag(f.object.pictogram_url(:thumb)) : content_tag(:span, 'No Pictogram'))
+      f.input :pictogram, as: :file, hint: (f.object.pictogram_url(:thumb) ? image_tag(f.object.pictogram_url(:thumb)) : content_tag(:span, 'No Pictogram'))
     end
     f.actions
   end
