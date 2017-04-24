@@ -39,7 +39,9 @@ ActiveAdmin.register Document do
       f.input :language, collection: Settings.languages
       f.input :title
       f.input :description, as: :ckeditor
-      f.input :doc_file, as: :file, hint: (f.object.doc_file_url ? content_tag(:span, "Current File Name: #{f.object.doc_file.metadata['filename']}") : content_tag(:span, 'No document'))
+      if f.object.id
+        f.input :doc_file, as: :file, hint: (f.object.doc_file_url ? content_tag(:span, "Current File Name: #{f.object.doc_file.metadata['filename']}") : content_tag(:span, 'No document'))
+      end
     end
     f.actions
   end

@@ -28,17 +28,6 @@ ActiveAdmin.register Post do
       row 'Number of speech transcripts' do |post|
         post.transcripts.size
       end
-      # row 'Video File Name' do |post|
-      # post.video.filename
-      # post.video[:video].metadata['filename'] if post.video.present?
-      # end
-      # row :video do |post|
-      #   video_tag(post.video[:video].url)
-      # end
-      # row :video do |post|
-      #   image_tag post.video_url(:screenshot)
-      #   # image_tag(post.video[:screenshot].url) if post.video.present?
-      # end
 
       # TODO: Play with subtitles
       row :video do |post|
@@ -53,8 +42,10 @@ ActiveAdmin.register Post do
   form do |f|
     f.inputs 'Post', multipart: true do
       f.input :title, label: 'Title'
-      f.input :video, as: :file, hint: (f.object.video_url(:screenshot) ? image_tag(post.video_url(:screenshot), size: '100x75') : 'No video')
-      f.input :subtitle, as: :file, hint: (f.object.subtitle_url ? content_tag(:span, "Current File Name: #{f.object.subtitle.metadata['filename']}") : content_tag(:span, 'No subtitle'))
+      if f.object.id
+        f.input :video, as: :file, hint: (f.object.video_url(:screenshot) ? image_tag(post.video_url(:screenshot), size: '100x75') : 'No video')
+        f.input :subtitle, as: :file, hint: (f.object.subtitle_url ? content_tag(:span, "Current File Name: #{f.object.subtitle.metadata['filename']}") : content_tag(:span, 'No subtitle'))
+      end
     end
     f.actions
   end

@@ -13,7 +13,7 @@
 
   <body>
     <nav class="navbar navbar-toggleable-sm navbar-light bg-faded">
-      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <button class="navbar-toggler navbar-toggler-left" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <a class="navbar-brand" href="<%= root_path %>">
@@ -46,9 +46,9 @@
       </div>
     </nav>
 
-    <div class="page-title text-center">
-      <%= yield(:title) %>
-    </div>
+    <!-- <div class="page-title text-center">
+      <%#= yield(:title) %>
+    </div> -->
 
     <div class="container">
       <%= yield %>
@@ -58,7 +58,7 @@
 
     <footer class="footer">
       <div class="container">
-        <div class="text-center text-muted"><%= raw "Copyright #{Time.current.year} HEL&#92;LO PROJECT" %></div>
+        <div class="text-center text-muted"><%= raw "Copyright #{Time.current.year} Hel&#92;LO PROJECT" %></div>
       </div>
     </footer>
   </body>

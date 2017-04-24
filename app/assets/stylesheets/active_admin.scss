@@ -15,3 +15,27 @@
 // For example, to change the default status-tag color:
 //
 //   .status_tag { background: #6090DB; }
+
+.progress {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  overflow: hidden;
+  font-size: .75rem;
+  line-height: 1rem;
+  text-align: center;
+  background-color: #eceeef;
+  border-radius: .25rem;
+}
+.progress-bar {
+  height: 1rem;
+  color: #fff;
+  background-color: #0275d8;
+}
+
+.alert-info {
+  color: #31708f;
+  background-color: #d9edf7;
+  border-color: #bce8f1;
+}

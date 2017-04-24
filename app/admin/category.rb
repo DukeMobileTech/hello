@@ -31,10 +31,13 @@ ActiveAdmin.register Category do
     end
   end
 
+  # TODO: Hide file upload first if object id is blank
   form do |f|
     f.inputs 'Category Details', multipart: true do
       f.input :name
-      f.input :pictogram, as: :file, hint: (f.object.pictogram_url(:thumb) ? image_tag(f.object.pictogram_url(:thumb)) : content_tag(:span, 'No Pictogram'))
+      if f.object.id
+        f.input :pictogram, as: :file, hint: (f.object.pictogram_url(:thumb) ? image_tag(f.object.pictogram_url(:thumb)) : content_tag(:span, 'No Pictogram'))
+      end
     end
     f.actions
   end

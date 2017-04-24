@@ -1,7 +1,7 @@
 $(document).ready(function() {
   $('[type=file]').fileupload({
     add: function(e, data) {
-      data.progressBar = $('<div class="progress" style="width: 300px"><div class="progress-bar"></div></div>').insertAfter(".inputs");
+      data.progressBar = $('<div class="progress"><div class="progress-bar"></div></div>').insertAfter(".inputs");
       var options = {
         extension: data.files[0].name.match(/(\.\w+)?$/)[0], // set extension
         _: Date.now(),                                       // prevent caching
@@ -35,6 +35,7 @@ $(document).ready(function() {
       form_data = new FormData(form[0]);
       form_data.delete($(this).attr('name'));
       form_data.append($(this).attr('name'), JSON.stringify(image));
+      var elementName = $(this).attr('name');
       
       $.ajax(form.attr('action'), {
         contentType: false,
@@ -43,7 +44,8 @@ $(document).ready(function() {
         method: form.attr('method'),
         dataType: 'json'
       }).success(function(data) {
-         location.reload();
+         var elementId = '#' + elementName.replace('[', '_').replace(']', '_') + 'input';
+         $(elementId).after( '<p class="alert-info">File successfully uploaded! Use the buttons at the bottom to save any other non-file changes made.</p>' );
       });
     }
   });

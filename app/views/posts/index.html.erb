@@ -1,8 +1,8 @@
-<% content_for :title, @category.name %>
+<%# content_for :title, @category.name %>
 <% unless @category.posts.blank? %>
-<div class="row post-header">
+<!-- <div class="row post-header">
   <div class="col-xs-12 col-md-12 subtitle text-center dark-text">Videos</div>
-</div>
+</div> -->
 <div class="box-block">
   <div class="row">
     <% @category.posts.each do |post| %>
@@ -36,9 +36,6 @@
 <% end %>
 
 <% unless @category.documents.blank? %>
-<div class="row post-header">
-  <div class="col-xs-12 col-md-12 subtitle text-center dark-text">Resources</div>
-</div>
 <div class="box-block">
   <div class="row post-header">
     <div class="col-xs-12 col-md-12 subtitle text-center">Downloads</div>

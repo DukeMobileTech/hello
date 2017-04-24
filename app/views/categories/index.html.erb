@@ -1,12 +1,12 @@
-<% content_for :title, 'Home' %>
+<%# content_for :title, 'Home' %>
 <div class="tab-block">
   <% @categories.each_slice(3) do |categories| %>
   <div class="row">
     <% categories.each do |category| %>
     <% cache category do %>
-    <div class="col-xs-12 col-sm-12 col-md-4">
+    <div class="col-xs-12 col-md-4">
       <% if category.pictogram_url(:medium) %>
-      <%= link_to (image_tag category.pictogram_url(:medium), class: 'img-fluid mx-auto d-block rounded card-img-top'), category_posts_path(category.id) %>
+      <%= link_to (image_tag category.pictogram_url(:medium), class: 'img-fluid mx-auto'), category_posts_path(category.id) %>
       <% end %>
       <h4 class="text-center dark-text">
         <small><%= category.name %></small>

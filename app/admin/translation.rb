@@ -27,7 +27,9 @@ ActiveAdmin.register Translation do
     f.inputs 'Translation', multipart: true do
       f.input :title
       f.input :language, collection: Settings.languages
-      f.input :audio, as: :file, hint: (f.object.audio_url ? content_tag(:span, "Current File Name: #{f.object.audio.metadata['filename']}") : content_tag(:span, 'No audio'))
+      if f.object.id
+        f.input :audio, as: :file, hint: (f.object.audio_url ? content_tag(:span, "Current File Name: #{f.object.audio.metadata['filename']}") : content_tag(:span, 'No audio'))
+      end
     end
     f.actions
   end
