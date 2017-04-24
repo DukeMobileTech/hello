@@ -106,4 +106,10 @@ Rails.application.configure do
     user_name: ENV['SMTP_USERNAME'],
     password: ENV['SMTP_PASSWORD']
   }
+
+  Rails.application.config.middleware.use ExceptionNotification::Rack, email: {
+    email_prefix: Settings.exception_notifications.email_prefix,
+    sender_address: Settings.exception_notifications.sender,
+    exception_recipients: Settings.exception_notifications.recipients
+  }
 end

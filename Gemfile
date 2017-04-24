@@ -60,6 +60,7 @@ gem 'roda', '~> 2.24'
 gem 'jquery-fileupload-rails', '~> 0.4.7'
 gem 'streamio-ffmpeg', '~> 3.0', '>= 3.0.2'
 gem 'kaminari', github: 'kaminari/kaminari', branch: '0-17-stable'
+gem 'exception_notification', '~> 4.2', '>= 4.2.1'
 #
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

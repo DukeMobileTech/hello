@@ -11,3 +11,7 @@ languages: [
               ['Swahili', 'sw']
           ]
 page_tags: ['About', 'External Links']
+exception_notifications:
+  email_prefix: '[Hel\LO Project] '
+  sender: 'dranoel.bravo@gmail.com'
+  recipients: ['dranoel.bravo@gmail.com']
