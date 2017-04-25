@@ -20,7 +20,7 @@
 <div class="box-block">
   <div class="row">
     <div class="col-xs-12 col-md-8">
-      <% if @post.video_url(:video) %>
+      <% if @post.video_url(:video) && @post.video.respond_to?(:[])  %>
       <div class="flowplayer custom-subtitles fp-playful" data-ratio="0.5625" data-embed="false" data-facebook="true">
         <video controls crossorigin>
           <source src="<%= @post.video_url(:video) %>" type="<%= @post.video[:video].mime_type %>">
