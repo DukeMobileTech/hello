@@ -68,6 +68,11 @@ nav a, a:visited, a:hover, a:link, a:active {
   padding: 0;
 }
 
+a.button:not(.disabled):hover, a:link.button:not(.disabled):hover, a:visited.button:not(.disabled):hover, input[type=submit]:not(.disabled):hover, input[type=button]:not(.disabled):hover, button:not(.disabled):hover {
+  background-image: none !important;
+  background-color: $page-title-background-color !important;
+}
+
 .tab-block {
   margin: 5px;
 }
