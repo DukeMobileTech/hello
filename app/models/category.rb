@@ -16,10 +16,12 @@
 # Home page tab
 class Category < ApplicationRecord
   include ImageUploader::Attachment.new(:pictogram)
+  default_scope { order(position: :asc) }
   has_many :posts, dependent: :destroy
   has_many :translations, through: :posts, dependent: :destroy
   has_many :documents, dependent: :destroy
   has_many :pages, dependent: :destroy
+  acts_as_list
   # has_attached_file :pictogram, styles: {
   #   medium: '300x300>',
   #   thumb: '100x100>'

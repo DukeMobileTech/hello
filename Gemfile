@@ -61,6 +61,8 @@ gem 'jquery-fileupload-rails', '~> 0.4.7'
 gem 'streamio-ffmpeg', '~> 3.0', '>= 3.0.2'
 gem 'kaminari', github: 'kaminari/kaminari', branch: '0-17-stable'
 gem 'exception_notification', '~> 4.2', '>= 4.2.1'
+gem 'acts_as_list', '~> 0.7.2'
+gem 'activeadmin_sortable_table', '~> 1.2'
 #
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

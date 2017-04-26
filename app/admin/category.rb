@@ -1,4 +1,6 @@
 ActiveAdmin.register Category do
+  include ActiveAdmin::SortableTable
+  config.sort_order = 'position_asc'
   permit_params :name, :pictogram
 
   sidebar 'Category Posts', only: :show do
@@ -10,7 +12,8 @@ ActiveAdmin.register Category do
   end
 
   index do
-    selectable_column
+    handle_column
+    column :position
     column :id
     column :name
     column :updated_at
@@ -31,7 +34,6 @@ ActiveAdmin.register Category do
     end
   end
 
-  # TODO: Hide file upload first if object id is blank
   form do |f|
     f.inputs 'Category Details', multipart: true do
       f.input :name
