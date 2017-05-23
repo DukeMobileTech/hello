@@ -27,19 +27,23 @@
               <a class="nav-link" href="<%= videos_path %>">Videos</a>
             </button>
           </li>
-          <li class="nav-item">
+          <li class="nav-item dropdown">
             <button class="btn btn-outline-secondary btn-sm" type="button">
-              <a class="nav-link" href="<%= documents_path %>">Documents</a>
+              <a class="nav-link dropdown-toggle" href="" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Resources
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                <% Category.all.each do |category| %>
+                <a class="dropdown-item text-center" href="<%= category_documents_path(category) %>">
+                  <%= category.name %>
+                </a>
+                <% end %>
+              </div>
             </button>
           </li>
           <li class="nav-item">
             <button class="btn btn-outline-secondary btn-sm" type="button">
-              <a class="nav-link" href="<%= pages_path(tag: 'External Links') %>">Links</a>
-            </button>
-          </li>
-          <li class="nav-item">
-            <button class="btn btn-outline-secondary btn-sm" type="button">
-              <a class="nav-link" href="<%= pages_path(tag: 'About') %>">About</a>
+              <a class="nav-link" href="<%= pages_path %>">About</a>
             </button>
           </li>
         </ul>

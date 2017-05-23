@@ -5,7 +5,6 @@ ActiveAdmin.register Page do
     selectable_column
     column :id
     column :title
-    column :tag
     column :text do |res|
       truncate res.text.html_safe
     end
@@ -17,7 +16,6 @@ ActiveAdmin.register Page do
     attributes_table do
       row :id
       row :title
-      row :tag
       row :category
       row :updated_at
       row :created_at
@@ -30,7 +28,6 @@ ActiveAdmin.register Page do
   form do |f|
     f.inputs 'Page Details', multipart: true do
       f.input :title, label: 'Title (required)'
-      f.input :tag, collection: Settings.page_tags, label: 'Tag (required)'
       f.input :category_id, as: :select, collection: Category.all.map { |c| [c.name, c.id] }, label: 'Category (optional)'
       f.input :text, as: :ckeditor, label: 'Text (required)'
     end

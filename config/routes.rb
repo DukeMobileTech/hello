@@ -8,7 +8,6 @@ Rails.application.routes.draw do
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   root to: 'categories#index'
-  resources :documents
   concern :tagable do
     get '(tag/:tag)', action: :index, on: :collection, as: ''
   end
@@ -19,6 +18,7 @@ Rails.application.routes.draw do
         get 'language/:language', action: 'language', as: 'language'
       end
     end
+    resources :documents
   end
   concern :paginatable do
     get '(page/:page)', action: :index, on: :collection, as: ''

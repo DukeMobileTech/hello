@@ -1,4 +1,5 @@
 ActiveAdmin.register Document do
+  menu label: 'Resources'
   permit_params :category_id, :title, :description, :language, :doc_file
   belongs_to :category
 
@@ -35,7 +36,7 @@ ActiveAdmin.register Document do
   end
 
   form do |f|
-    f.inputs 'Document Details', multipart: true do
+    f.inputs 'Resource Details', multipart: true do
       f.input :language, collection: Settings.languages
       f.input :title
       f.input :description, as: :ckeditor

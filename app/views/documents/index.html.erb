@@ -1,34 +1,22 @@
 <%# content_for :title, 'Documents' %>
-<% @categories.each do |category| %>
-<% unless category.documents.blank? %>
-<% cache category do %>
-<div class="box-block">
-  <div class="row post-header">
-    <div class="col-xs-12 col-md-12 subtitle text-center">
-      <%= category.name %>
-    </div>
+<div class="row post-header">
+  <div class="col-xs-12 col-md-12 subtitle text-center">
+    <%= @category.name %>
   </div>
-  <table class="table-borderless">
-    <thead>
-      <tr>
-        <th>Title</th>
-        <th>Language</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <% category.documents.each do |document| %>
-      <% cache document do %>
-      <tr>
-        <td><%= link_to document.title, document_path(document) %></td>
-        <td><%= get_language document.language %></td>
-        <td><%= raw document.description %></td>
-      </tr>
-      <% end %>
-      <% end %>
-    </tbody>
-  </table>
 </div>
-<% end %>
-<% end %>
+
+<% @documents.each do |document| %>
+<div class="box-block">
+  <div class="text-center">
+    <%= document.title %>
+  </div>
+  <div>
+    <%= raw document.description %>
+  </div>
+  <% if document && document.doc_file_url %>
+  <div class="text-center">
+    <%= link_to document.title, category_document_path(@category, document) %>
+  </div>
+  <% end %>
+</div>
 <% end %>

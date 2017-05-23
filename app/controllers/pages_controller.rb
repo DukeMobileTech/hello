@@ -1,7 +1,6 @@
 class PagesController < ApplicationController
   def index
-    @tag = params[:tag]
-    @pages = Page.where(tag: @tag)
+    @pages = Page.all
   end
 
   def show

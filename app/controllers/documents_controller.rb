@@ -2,7 +2,8 @@ class DocumentsController < ApplicationController
   # caches_action :index, :show
 
   def index
-    @categories = Category.includes(:documents)
+    @category = Category.find params[:category_id]
+    @documents = @category.documents
   end
 
   def show
