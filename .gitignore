@@ -16,6 +16,7 @@
 
 # Ignore file uploads
 /public/system
+/public/uploads
 
 # Ignore sensitive information
 /config/local_env.yml
