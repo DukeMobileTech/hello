@@ -11,15 +11,15 @@ s3_options = {
 
 Shrine.storages = {
   cache: Shrine::Storage::S3.new(prefix: "#{Rails.env}/cache", upload_options: { acl: 'public-read' }, **s3_options),
-  store: Shrine::Storage::S3.new(prefix: "#{Rails.env}/store", upload_options: { acl: 'public-read' }, **s3_options),
-  new_store: Shrine::Storage::FileSystem.new('public', prefix: "uploads/#{Rails.env}/store")
+  store: Shrine::Storage::FileSystem.new('public', prefix: "uploads/#{Rails.env}/store")
 }
 
-Shrine.plugin :default_storage, store: :new_store
+# Shrine.plugin :default_storage, store: :new_store
 Shrine.plugin :activerecord
 Shrine.plugin :backgrounding
 Shrine.plugin :logging, logger: Rails.logger
-Shrine.plugin :direct_upload
+Shrine.plugin :presign_endpoint
+Shrine.plugin :upload_endpoint
 Shrine.plugin :cached_attachment_data
 Shrine.plugin :restore_cached_data
 

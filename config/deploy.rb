@@ -9,7 +9,7 @@ set :pty, false
 set :format, :pretty
 set :keep_releases, 5
 set :linked_files, %w[config/database.yml config/secrets.yml config/local_env.yml]
-set :linked_dirs, %w[log tmp/pids tmp/cache tmp/sockets vendor/bundle]
+set :linked_dirs, %w[log tmp/pids tmp/cache tmp/sockets vendor/bundle public/uploads]
 set :bundle_binstubs, nil
 
 set :rvm_custom_path, '/usr/share/rvm' # System-wide RVM

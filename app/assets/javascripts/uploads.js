@@ -3,10 +3,10 @@ $(document).ready(function() {
     add: function(e, data) {
       data.progressBar = $('<div class="progress"><div class="progress-bar"></div></div>').insertAfter(".inputs");
       var options = {
-        extension: data.files[0].name.match(/(\.\w+)?$/)[0], // set extension
-        _: Date.now(),                                       // prevent caching
+        filename: data.files[0].name.match(/[^\/\\]*$/)[0],
+        _: Date.now()
       }
-      $.getJSON('/files/upload/cache/presign', options, function(result) {
+      $.getJSON('/presign', options, function(result) {
         data.formData = result['fields'];
         data.url = result['url'];
         data.paramName = 'file';

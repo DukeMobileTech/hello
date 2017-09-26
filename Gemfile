@@ -36,12 +36,10 @@ gem 'jbuilder', '~> 2.5'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
-gem 'paperclip', '~> 5.1.0'
 gem 'inherited_resources', '~> 1.7'
 gem 'activeadmin', '~> 1.0.0.pre5'
 gem 'bootstrap', '~> 4.0.0.alpha6'
 gem 'annotate', '~> 2.7', '>= 2.7.1'
-gem 'paperclip-av-transcoder', '~> 0.6.4'
 gem 'aws-sdk', '~> 2.8', '>= 2.8.7'
 gem 'devise', '~> 4.2'
 gem 'devise_invitable', '~> 1.5', '>= 1.5.5'
@@ -51,7 +49,7 @@ gem 'rails-observers', github: 'rails/rails-observers'
 gem 'actionpack-action_caching', '~> 1.1', '>= 1.1.1'
 gem 'dalli', '~> 2.7', '>= 2.7.6'
 gem 'connection_pool', '~> 2.2'
-gem 'shrine', '~> 2.5'
+gem 'shrine', '~> 2.7.0'
 gem 'image_processing', '~> 0.4.1'
 gem 'mini_magick', '~> 4.7' # Imagemagick
 gem 'sucker_punch', '~> 2.0', '>= 2.0.2'
@@ -63,7 +61,7 @@ gem 'kaminari', github: 'kaminari/kaminari', branch: '0-17-stable'
 gem 'exception_notification', '~> 4.2', '>= 4.2.1'
 gem 'acts_as_list', '~> 0.7.2'
 gem 'activeadmin_sortable_table', '~> 1.2'
-#
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri

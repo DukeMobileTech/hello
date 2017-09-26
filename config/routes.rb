@@ -1,10 +1,10 @@
 Rails.application.routes.draw do
   mount Ckeditor::Engine => '/ckeditor'
-  mount ImageUploader::UploadEndpoint, at: '/files/upload'
-  mount VideoUploader::UploadEndpoint, at: '/files/upload'
-  mount AudioUploader::UploadEndpoint, at: '/files/upload'
-  mount SubtitleUploader::UploadEndpoint, at: '/files/upload'
-  mount DocumentUploader::UploadEndpoint, at: '/files/upload'
+  mount ImageUploader.presign_endpoint(:cache) => '/presign'
+  mount VideoUploader.presign_endpoint(:cache) => '/presign'
+  mount AudioUploader.presign_endpoint(:cache) => '/presign'
+  mount SubtitleUploader.presign_endpoint(:cache) => '/presign'
+  mount DocumentUploader.presign_endpoint(:cache) => '/presign'
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   root to: 'categories#index'
