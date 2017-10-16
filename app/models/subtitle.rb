@@ -13,5 +13,5 @@
 class Subtitle < ApplicationRecord
   belongs_to :post, touch: true
   include SubtitleUploader::Attachment.new(:subtitle)
-  validates :language, uniqueness: true
+  validates :language, uniqueness: { scope: :post_id, message: "subtitle language needs to be unique per video" }
 end
