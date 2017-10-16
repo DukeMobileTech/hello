@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171016140358) do
+ActiveRecord::Schema.define(version: 20171016163407) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -69,12 +69,8 @@ ActiveRecord::Schema.define(version: 20171016140358) do
 
   create_table "categories", force: :cascade do |t|
     t.string   "name"
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
-    t.string   "pictogram_file_name"
-    t.string   "pictogram_content_type"
-    t.integer  "pictogram_file_size"
-    t.datetime "pictogram_updated_at"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
     t.text     "pictogram_data"
     t.integer  "position"
   end
@@ -97,12 +93,8 @@ ActiveRecord::Schema.define(version: 20171016140358) do
     t.string   "title"
     t.text     "description"
     t.string   "language"
-    t.datetime "created_at",            null: false
-    t.datetime "updated_at",            null: false
-    t.string   "doc_file_file_name"
-    t.string   "doc_file_content_type"
-    t.integer  "doc_file_file_size"
-    t.datetime "doc_file_updated_at"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
     t.text     "doc_file_data"
   end
 
@@ -119,18 +111,9 @@ ActiveRecord::Schema.define(version: 20171016140358) do
     t.string   "title"
     t.integer  "category_id"
     t.string   "video_meta"
-    t.datetime "created_at",            null: false
-    t.datetime "updated_at",            null: false
-    t.string   "video_file_name"
-    t.string   "video_content_type"
-    t.integer  "video_file_size"
-    t.datetime "video_updated_at"
-    t.string   "subtitle_file_name"
-    t.string   "subtitle_content_type"
-    t.integer  "subtitle_file_size"
-    t.datetime "subtitle_updated_at"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
     t.text     "video_data"
-    t.text     "subtitle_data"
   end
 
   create_table "subtitles", force: :cascade do |t|
@@ -154,12 +137,8 @@ ActiveRecord::Schema.define(version: 20171016140358) do
     t.string   "title"
     t.string   "language"
     t.integer  "post_id"
-    t.datetime "created_at",         null: false
-    t.datetime "updated_at",         null: false
-    t.string   "audio_file_name"
-    t.string   "audio_content_type"
-    t.integer  "audio_file_size"
-    t.datetime "audio_updated_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.text     "audio_data"
   end
 
