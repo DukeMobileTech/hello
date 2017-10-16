@@ -6,6 +6,7 @@ ActiveAdmin.register Post do
     ul do
       li link_to 'Audio Translations', admin_post_translations_path(params[:id])
       li link_to 'Speech Transcripts', admin_post_transcripts_path(params[:id])
+      li link_to 'Video Subtitles', admin_post_subtitles_path(params[:id])
     end
   end
 
@@ -29,12 +30,8 @@ ActiveAdmin.register Post do
         post.transcripts.size
       end
 
-      # TODO: Play with subtitles
       row :video do |post|
         post.video_url(:video) ? video_tag(post.video_url(:video), controls: true) : content_tag(:span, 'No Video')
-      end
-      row :subtitle do |post|
-        post.subtitle ? post.subtitle.metadata['filename'] : content_tag(:span, 'No Subtitle File')
       end
     end
   end
@@ -44,13 +41,9 @@ ActiveAdmin.register Post do
       f.input :title, label: 'Title'
       if f.object.id
         f.input :video, as: :file, hint: (f.object.video_url(:screenshot) ? image_tag(post.video_url(:screenshot), size: '100x75') : 'No video')
-        f.input :subtitle, as: :file, hint: (f.object.subtitle_url ? content_tag(:span, "Current File Name: #{f.object.subtitle.metadata['filename']}") : content_tag(:span, 'No subtitle'))
       end
     end
     f.actions
   end
 
-  # controller do
-  #   cache_sweeper :post_sweeper
-  # end
 end

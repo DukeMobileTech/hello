@@ -11,6 +11,7 @@
 #  pictogram_file_size    :integer
 #  pictogram_updated_at   :datetime
 #  pictogram_data         :text
+#  position               :integer
 #
 
 # Home page tab

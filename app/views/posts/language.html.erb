@@ -1,4 +1,3 @@
-<%# content_for :title, @category.name %>
 <div class="post-header">
   <div class="row">
     <div class="col-xs-12 col-md-7">
@@ -24,9 +23,16 @@
       <div class="flowplayer custom-subtitles fp-playful" data-ratio="0.5625" data-embed="false" data-facebook="true">
         <video controls crossorigin>
           <source src="<%= @post.video_url(:video) %>" type="<%= @post.video[:video].mime_type %>">
-          <% if @post.subtitle.present? %>
-          <track label="English" kind="subtitles" srclang="en" src="<%= @post.subtitle_url %>" default="true">
+          <% @post.subtitles.each do |subtitle| %>
+            <% if subtitle.present? %>
+              <track
+                label="<%= get_language(subtitle.language) %>"
+                kind="subtitles"
+                srclang="<%= subtitle.language %>"
+                src="<%= subtitle.subtitle_url %>"
+                default="true">
             <% end %>
+          <% end %>
           </video>
         </div>
         <% end %>
