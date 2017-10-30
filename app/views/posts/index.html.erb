@@ -6,14 +6,12 @@
     <% @category.posts.each do |post| %>
     <% cache post do %>
     <div class="col-xs-12 col-md-6 mb-3">
-      <div class="text-center">
-        <%= link_to post.title, language_category_post_path(@category, post, 'en'),
-        class: 'text-muted' %>
-      </div>
+      <div class="text-center text-muted"> <%= post.title %></div>
 
       <% if post.video_url(:screenshot).present? %>
-      <%= image_tag(post.video_url(:screenshot), height: '225', width: '300',
-      class: 'mx-auto d-block mb-1') %>
+      <%= link_to (image_tag(post.video_url(:screenshot),
+        class: 'mx-auto d-block mb-1 image-view-box')),
+        language_category_post_path(@category, post, 'en') %>
       <% end %>
 
       <div class="text-center">

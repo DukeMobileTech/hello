@@ -7,15 +7,6 @@ GIT
       orm_adapter (~> 0.5.0)
 
 GIT
-  remote: https://github.com/kaminari/kaminari.git
-  revision: e83d6cebf69fd78e3c9830992209601fdc3e0f23
-  branch: 0-17-stable
-  specs:
-    kaminari (0.17.0)
-      actionpack (>= 3.0.0)
-      activesupport (>= 3.0.0)
-
-GIT
   remote: https://github.com/rails/rails-observers.git
   revision: 7d3c9c331242d58ed8ebdbd2eff1f7d6f68a1b2c
   specs:
@@ -193,6 +184,18 @@ GEM
       thor (>= 0.14, < 2.0)
     jquery-ui-rails (6.0.1)
       railties (>= 3.2.16)
+    kaminari (1.1.1)
+      activesupport (>= 4.1.0)
+      kaminari-actionview (= 1.1.1)
+      kaminari-activerecord (= 1.1.1)
+      kaminari-core (= 1.1.1)
+    kaminari-actionview (1.1.1)
+      actionview
+      kaminari-core (= 1.1.1)
+    kaminari-activerecord (1.1.1)
+      activerecord
+      kaminari-core (= 1.1.1)
+    kaminari-core (1.1.1)
     listen (3.0.8)
       rb-fsevent (~> 0.9, >= 0.9.4)
       rb-inotify (~> 0.9, >= 0.9.7)
@@ -346,7 +349,7 @@ DEPENDENCIES
   jbuilder (~> 2.5)
   jquery-fileupload-rails (~> 0.4.7)
   jquery-rails
-  kaminari!
+  kaminari (~> 1.1, >= 1.1.1)
   listen (~> 3.0.5)
   mini_magick (~> 4.7)
   paperclip (~> 5.1.0)
