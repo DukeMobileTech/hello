@@ -1,21 +1,6 @@
-<div class="post-header">
-  <div class="row">
-    <div class="col-xs-12 col-md-7">
-      <div class="post-title dark-text">
-        <%= @post.child_by_language(@language).try(:title) || @post.title %>
-      </div>
-    </div>
-    <div class="col-xs-12 col-md-5">
-      <div class="text-info text-right">
-        <% (@post.languages - [@language]).each do |lang| %>
-        <div class="btn btn-outline-secondary">
-          <%= link_to get_language(lang), language_category_post_path(@category, @post, lang) %>
-        </div>
-        <% end %>
-      </div>
-    </div>
-  </div>
-</div>
+<h6 class="text-muted text-center">
+  <%= @post.child_by_language(@language).try(:title) || @post.title %>
+</h6>
 <div class="box-block">
   <div class="row">
     <div class="col-xs-12 col-md-8">
@@ -23,21 +8,27 @@
       <div class="flowplayer custom-subtitles fp-playful" data-ratio="0.5625" data-embed="false" data-facebook="true">
         <video controls crossorigin>
           <source src="<%= @post.video_url(:video) %>" type="<%= @post.video[:video].mime_type %>">
-          <% @post.subtitles.each do |subtitle| %>
+            <% @post.subtitles.each do |subtitle| %>
             <% if subtitle.present? %>
-              <track
-                label="<%= get_language(subtitle.language) %>"
-                kind="subtitles"
-                srclang="<%= subtitle.language %>"
-                src="<%= subtitle.subtitle_url %>"
-                default="true">
+            <track
+            label="<%= get_language(subtitle.language) %>"
+            kind="subtitles"
+            srclang="<%= subtitle.language %>"
+            src="<%= subtitle.subtitle_url %>"
+            default="true">
             <% end %>
-          <% end %>
+            <% end %>
           </video>
         </div>
         <% end %>
       </div>
       <div class="col-xs-12 col-md-4">
+        <div class="text-center mb-1">
+          <% (@post.languages - [@language]).each do |lang| %>
+          <%= link_to get_language(lang), language_category_post_path(@category, @post, lang),
+          class: 'bg-info text-white p-1 m-1' %>
+          <% end %>
+        </div>
         <% @translations.each do |translation| %>
         <% cache translation do %>
         <% if translation.audio.present? %>
@@ -46,22 +37,22 @@
             <div class="row col-xs-12">
               <audio controls>
                 <source src="<%= translation.audio_url %>" type="<%= translation.audio.metadata['mime_type'] %>"/>
-              </audio>
+                </audio>
+              </div>
             </div>
           </div>
-        </div>
-        <% end %>
-        <% end %>
-        <% end %>
-        <% @transcripts.each do |transcript| %>
-        <% cache transcript do %>
-        <div class="card transcript-box">
-          <div class="card-block">
-            <%= transcript.text.html_safe %>
+          <% end %>
+          <% end %>
+          <% end %>
+          <% @transcripts.each do |transcript| %>
+          <% cache transcript do %>
+          <div class="card transcript-box">
+            <div class="card-block">
+              <%= transcript.text.html_safe %>
+            </div>
           </div>
+          <% end %>
+          <% end %>
         </div>
-        <% end %>
-        <% end %>
       </div>
     </div>
-  </div>

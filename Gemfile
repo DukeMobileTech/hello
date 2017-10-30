@@ -36,7 +36,7 @@ gem 'jbuilder', '~> 2.5'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
-gem 'paperclip', '~> 5.1.0' # Used by Ckeditor 
+gem 'paperclip', '~> 5.1.0' # Used by Ckeditor
 gem 'inherited_resources', '~> 1.7'
 gem 'activeadmin', '~> 1.0.0.pre5'
 gem 'bootstrap', '~> 4.0.0.alpha6'
@@ -79,7 +79,7 @@ group :development do
   gem 'capistrano-rvm', '~> 0.1.2'
   gem 'capistrano-bundler', '~> 1.2'
   gem 'capistrano-rails', '~> 1.3'
-  gem 'capistrano-passenger', '~> 0.0.5'
+  gem 'capistrano-passenger', '~> 0.2.0'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

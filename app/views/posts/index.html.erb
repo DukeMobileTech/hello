@@ -1,33 +1,29 @@
-<%# content_for :title, @category.name %>
 <% unless @category.posts.blank? %>
-<div class="row post-header">
-  <div class="col-xs-12 col-md-12 subtitle text-center">
-    <%= "#{@category.name} Videos" %>
-  </div>
-</div>
+<h4 class="text-center text-muted"><%= "#{@category.name} Videos" %></h4>
+
 <div class="box-block">
   <div class="row">
     <% @category.posts.each do |post| %>
     <% cache post do %>
-    <div class="col-xs-12 col-md-6 text-center">
-      <% if post.languages.empty? %>
-      <div>
-        <%= link_to post.title, language_category_post_path(@category, post, 'en') %>
+    <div class="col-xs-12 col-md-6 mb-3">
+      <div class="text-center">
+        <%= link_to post.title, language_category_post_path(@category, post, 'en'),
+        class: 'text-muted' %>
       </div>
+
+      <% if post.video_url(:screenshot).present? %>
+      <%= image_tag(post.video_url(:screenshot), height: '225', width: '300',
+      class: 'mx-auto d-block mb-1') %>
       <% end %>
-      <% post.languages.each do |language| %>
-      <% if post.child_by_language(language) %>
-      <div>
-        <%= link_to post.child_by_language(language).title, language_category_post_path(@category, post, language) %>
-      </div>
-      <% end %>
-      <% end %>
-      <% if !post.languages.empty? && !post.languages.include?('en') %>
-      <div><%= link_to post.title, language_category_post_path(@category, post, 'en') %></div>
-      <% end %>
-      <div>
-        <% if post.video_url(:screenshot).present? %>
-        <%= image_tag(post.video_url(:screenshot), height: '225', width: '300') %>
+
+      <div class="text-center">
+        <% post.languages.each do |language| %>
+        <% if post.child_by_language(language) %>
+        <span class="m-2">
+          <%= link_to get_language(language),
+          language_category_post_path(@category, post, language), class: 'bg-info text-white p-1' %>
+        </span>
+        <% end %>
         <% end %>
       </div>
     </div>

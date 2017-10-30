@@ -15,14 +15,6 @@ set :bundle_binstubs, nil
 set :rvm_custom_path, '/usr/share/rvm' # System-wide RVM
 
 namespace :deploy do
-  desc 'Restart Application'
-  task :restart do
-    desc 'restart phusion passenger'
-    on roles(:app), in: :sequence, wait: 5 do
-      execute :touch, current_path.join('tmp/restart.txt')
-    end
-  end
-
   after :finishing, 'deploy:cleanup'
 end
 

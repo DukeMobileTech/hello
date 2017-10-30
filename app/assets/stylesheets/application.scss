@@ -75,10 +75,6 @@ a.button:not(.disabled):hover, a:link.button:not(.disabled):hover, a:visited.but
   background-color: $page-title-background-color !important;
 }
 
-.tab-block {
-  margin: 5px;
-}
-
 .separator {
   height: 10px;
 }
@@ -149,27 +145,12 @@ a.button:not(.disabled):hover, a:link.button:not(.disabled):hover, a:visited.but
   margin-right: 5px;
 }
 
-.post-title {
-  padding-top: 5px;
-  font-size: 20px;
-  color: $subtitle-color;
-}
-
-.subtitle {
-  font-size: 20px;
-  color: $subtitle-color;
-}
-
 .table.table-borderless td, .table.table-borderless th {
     border: 0 !important;
 }
 
 .table.table-borderless {
     margin-bottom: 0px;
-}
-
-.dark-text {
-  color: $black-text-color;
 }
 
 .btn {

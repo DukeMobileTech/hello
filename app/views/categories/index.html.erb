@@ -1,19 +1,17 @@
-<div class="tab-block">
-  <% @categories.each_slice(3) do |categories| %>
-  <div class="row">
-    <% categories.each do |category| %>
-    <% cache category do %>
-    <div class="col-xs-12 col-md-4">
-      <% if category.pictogram_url(:medium) %>
-      <%= link_to (image_tag category.pictogram_url(:medium),
-      class: 'img-fluid mx-auto', height: '250', width: '250'), category_posts_path(category.id) %>
-      <% end %>
-      <h4 class="text-left dark-text">
-        <small><%= category.name %></small>
-      </h4>
+<% @categories.each_slice(3) do |categories| %>
+<div class="row">
+  <% categories.each do |category| %>
+  <% cache category do %>
+  <div class="col-xs-12 col-md-4">
+    <% if category.pictogram_url(:medium) %>
+    <%= link_to (image_tag category.pictogram_url(:medium),
+    class: 'img-fluid mx-auto', height: '250', width: '250'), category_posts_path(category.id) %>
+    <% end %>
+    <div class="text-left mb-3">
+      <%= link_to category.name, category_posts_path(category.id), class: 'text-muted' %>
     </div>
-    <% end %>
-    <% end %>
   </div>
   <% end %>
+  <% end %>
 </div>
+<% end %>
