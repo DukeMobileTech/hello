@@ -11,7 +11,7 @@
  * It is generally better to create a new file per style scope.
  *
  */
- 
+
  @import "bootstrap";
  @import "active_admin";
  @import "bootstrap3_player";
@@ -46,14 +46,16 @@ audio {
     background-color: $header-background-color;
 }
 
-.navbar-brand {
-  margin-left: 90px;
+.navbar-toggler-right {
+    position: absolute;
+    right: 1rem;
+    top: 100px;
 }
 
 .navbar-light .navbar-nav .nav-link {
   font-size: 20px;
   color: $black-text-color;
-  font-weight: normal; 
+  font-weight: normal;
   font-family: 'Raleway', sans-serif;
 }
 
@@ -112,12 +114,12 @@ a.button:not(.disabled):hover, a:link.button:not(.disabled):hover, a:visited.but
   text-align: center;
   bottom: 40px;
 }
- 
+
 .flowplayer.custom-subtitles .fp-captions p {
   background: none;
   text-shadow: 0 0 2px $black-text-color;
 }
- 
+
 .box-block {
   background-color: white;
   padding: 5px;

@@ -1,20 +1,21 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Hel\LO Project</title>
-    <%= csrf_meta_tags %>
+<head>
+  <title>HELLO Project</title>
+  <link rel="icon" href="/assets/favicon.png">
+  <%= csrf_meta_tags %>
+  <%= stylesheet_link_tag    'application', media: 'all' %>
+  <%= javascript_include_tag 'application' %>
+  <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
 
-    <%= stylesheet_link_tag    'application', media: 'all' %>
-    <%= javascript_include_tag 'application' %>
-    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-  </head>
-
-  <body>
-    <nav class="navbar navbar-toggleable-sm navbar-light bg-faded">
-      <button class="navbar-toggler navbar-toggler-left" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
+<body>
+  <nav class="navbar navbar-toggleable-sm navbar-light bg-faded sticky-top">
+    <div class="container">
+      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
       </button>
       <a class="navbar-brand" href="<%= root_path %>">
         <img src="<%= asset_path( 'logo.png' ) %>" class="img-fluid">
@@ -48,22 +49,23 @@
           </li>
         </ul>
       </div>
-    </nav>
-
-    <!-- <div class="page-title text-center">
-      <%#= yield(:title) %>
-    </div> -->
-
-    <div class="container">
-      <%= yield %>
     </div>
+  </nav>
 
-    <div class="separator"></div>
+<main role="main" class="container">
+  <div class="jumbotron">
+    <%= yield %>
+  </div>
+</main>
 
-    <footer class="footer">
-      <div class="container">
-        <div class="text-center text-muted"><%= raw "Copyright #{Time.current.year} Hel&#92;LO PROJECT" %></div>
-      </div>
-    </footer>
-  </body>
+<div class="separator"></div>
+
+<footer class="footer">
+  <div class="container">
+    <div class="text-center text-muted">
+      <%= raw "Copyright #{Time.current.year} HELLO PROJECT" %>
+    </div>
+  </div>
+</footer>
+</body>
 </html>
