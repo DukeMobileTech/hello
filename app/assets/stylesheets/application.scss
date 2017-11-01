@@ -25,6 +25,9 @@ $black-text-color: #000;
 $subtitle-color: #74BBB3;
 $video-splash-background-color: #55ba57;
 $page-title-background-color: #01A2A6;
+$dimgray: #696969;
+$lightgray: #D3D3D3;
+$papayawhip: #FFEFD5;
 
 html {
   position: relative;
@@ -112,7 +115,8 @@ a.button:not(.disabled):hover, a:link.button:not(.disabled):hover, a:visited.but
 }
 
 .flowplayer.custom-subtitles .fp-captions p {
-  background: none;
+  background-image: linear-gradient(to bottom, $dimgray, $lightgray);
+  color: papayawhip;
   text-shadow: 0 0 2px $black-text-color;
 }
 
