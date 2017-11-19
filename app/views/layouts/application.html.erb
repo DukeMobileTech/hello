@@ -30,21 +30,32 @@
           </li>
           <li class="nav-item dropdown">
             <button class="btn btn-outline-secondary btn-sm" type="button">
-              <a class="nav-link dropdown-toggle" href="" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <a class="nav-link dropdown-toggle" href="" id="navbarDropdownMenuLink"
+              data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Resources
               </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                 <% Category.all.each do |category| %>
-                <a class="dropdown-item text-center" href="<%= category_documents_path(category) %>">
+                <a class="nav-link" href="<%= category_documents_path(category) %>">
                   <%= category.name %>
                 </a>
                 <% end %>
               </div>
             </button>
           </li>
-          <li class="nav-item">
-            <button class="btn btn-outline-secondary btn-sm" type="button">
-              <a class="nav-link" href="<%= pages_path %>">About</a>
+          <li class="nav-item dropdown">
+            <button class="btn btn-sm btn-outline-secondary" type="button">
+              <a class="nav-link dropdown-toggle" href="<%= pages_path %>" id="navbarAboutDropdownMenuLink"
+              data-toggle="dropdown">
+                About
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarAboutDropdownMenuLink">
+                <% Page.all.each do |page| %>
+                <a class="nav-link" href="<%= page_path(page) %>">
+                  <%= page.title %>
+                </a>
+                <% end %>
+              </div>
             </button>
           </li>
         </ul>
