@@ -5,22 +5,22 @@
   <div class="row">
     <div class="col-xs-12 col-md-8">
       <% if @post.video_url(:video) && @post.video.respond_to?(:[])  %>
-      <div class="flowplayer custom-subtitles fp-playful" data-ratio="0.5625" data-embed="false" data-facebook="true">
-        <video controls crossorigin>
+      <div class="embed-responsive embed-responsive-4by3">
+        <video class="embed-responsive-item" controls crossorigin>
           <source src="<%= @post.video_url(:video) %>" type="<%= @post.video[:video].mime_type %>">
-            <% @post.subtitles.each do |subtitle| %>
+          <% @post.subtitles.each do |subtitle| %>
             <% if subtitle.present? %>
-            <track
-            label="<%= get_language(subtitle.language) %>"
-            kind="subtitles"
-            srclang="<%= subtitle.language %>"
-            src="<%= subtitle.subtitle_url %>"
-            default="true">
+              <track
+              label="<%= get_language(subtitle.language) %>"
+              kind="subtitles"
+              srclang="<%= subtitle.language %>"
+              src="<%= subtitle.subtitle_url %>"
+              default="true">
             <% end %>
-            <% end %>
-          </video>
-        </div>
-        <% end %>
+          <% end %>
+        </video>
+      </div>
+      <% end %>
       </div>
       <div class="col-xs-12 col-md-4">
         <div class="text-center mb-1">

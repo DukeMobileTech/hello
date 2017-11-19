@@ -15,7 +15,6 @@
  @import "bootstrap";
  @import "active_admin";
  @import "bootstrap3_player";
- @import "skin";
 
 $body-background-color: #F0F0F0;
 $header-background-color: #F0F0F0;
@@ -107,17 +106,6 @@ a.button:not(.disabled):hover, a:link.button:not(.disabled):hover, a:visited.but
 .cke_chrome {
   width: 79.5% !important;
   overflow: hidden;
-}
-
-.flowplayer.custom-subtitles .fp-captions {
-  text-align: center;
-  bottom: 40px;
-}
-
-.flowplayer.custom-subtitles .fp-captions p {
-  background-image: linear-gradient(to bottom, $dimgray, $lightgray);
-  color: papayawhip;
-  text-shadow: 0 0 2px $black-text-color;
 }
 
 .box-block {
