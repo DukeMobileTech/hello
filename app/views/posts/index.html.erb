@@ -1,5 +1,5 @@
 <% unless @category.posts.blank? %>
-<h4 class="text-center text-muted"><%= "#{@category.name} Videos" %></h4>
+<h1 class="bd-title text-center"><%= "#{@category.name} Videos" %></h1>
 
 <div class="box-block">
   <div class="row">
@@ -10,7 +10,7 @@
 
       <% if post.video_url(:screenshot).present? %>
       <%= link_to (image_tag(post.video_url(:screenshot),
-        class: 'mx-auto d-block mb-1 image-view-box')),
+        class: 'img-fluid w-100')),
         language_category_post_path(@category, post, 'en') %>
       <% end %>
 
@@ -19,7 +19,8 @@
         <% if post.child_by_language(language) %>
         <span class="m-2">
           <%= link_to get_language(language),
-          language_category_post_path(@category, post, language), class: 'bg-info text-white p-1' %>
+          language_category_post_path(@category, post, language),
+          class: 'bg-info text-white p-1' %>
         </span>
         <% end %>
         <% end %>

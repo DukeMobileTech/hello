@@ -1,20 +1,20 @@
 /*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
- * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
- * files in this directory. Styles in this file should be added after the last require_* statement.
- * It is generally better to create a new file per style scope.
- *
- */
+* This is a manifest file that'll be compiled into application.css, which will include all the files
+* listed below.
+*
+* Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+* or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+*
+* You're free to add application-wide styles to this file and they'll appear at the bottom of the
+* compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+* files in this directory. Styles in this file should be added after the last require_* statement.
+* It is generally better to create a new file per style scope.
+*
+*/
 
- @import "bootstrap";
- @import "active_admin";
- @import "bootstrap3_player";
+@import "bootstrap";
+@import "active_admin";
+@import "bootstrap3_player";
 
 $body-background-color: #F0F0F0;
 $header-background-color: #F0F0F0;
@@ -37,20 +37,39 @@ body {
   background-color: $body-background-color;
   margin-bottom: $footer-height;
   font-size: 16px;
-  font-family: 'Roboto', sans-serif;
+  font-family: "proxima_nova_regular",Calibri,Arial,Verdana,sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Roboto Slab","proxima_nova_regular",Calibri,Arial,Verdana,sans-serif;
+  line-height: 1.2em;
+}
+
+@media (min-width: 576px) {
+  .jumbotron {
+    padding: 0;
+  }
 }
 
 audio {
   margin: 0 auto;
 }
 
+// Make navbar non-sticky on xs devices
+@media (max-width: 768px) {
+  .sticky-top { position: relative !important; }
+  .navbar-brand>img {
+    width: 100%;
+  }
+}
+
 .navbar {
-    background-color: $header-background-color;
+  background-color: $header-background-color;
 }
 
 .navbar-light .navbar-nav .nav-link {
+  font-family: "Roboto Slab","proxima_nova_regular",Calibri,Arial,Verdana,sans-serif;
   font-size: 18px;
-  font-family: 'Roboto', sans-serif;
 }
 
 .btn-outline-secondary:hover, .btn-outline-secondary:focus, .btn-outline-secondary:active, .btn-outline-secondary.active, .open>.dropdown-toggle.btn-outline-secondary {
@@ -83,14 +102,6 @@ a.button:not(.disabled):hover, a:link.button:not(.disabled):hover, a:visited.but
   background-color: $footer-background-color;
 }
 
-.navbar-inverse .navbar-brand, .navbar-inverse .navbar-toggler {
-  color: $black-text-color;
-}
-
-.navbar-inverse .navbar-nav .nav-link {
-  color: $black-text-color;
-}
-
 .text-info {
   color: $subtitle-color !important;
 }
@@ -103,19 +114,6 @@ a.button:not(.disabled):hover, a:link.button:not(.disabled):hover, a:visited.but
 .box-block {
   background-color: white;
   padding: 5px;
-  margin: 5px;
-}
-
-.page-title {
-  background-color: $page-title-background-color;
-  color: white;
-  height: 40px;
-  font-family: 'Poppins', Arial, Helvetica, 'Nimbus Sans L', sans-serif;
-  font-size: 28px;
-  line-height: 36px;
-  font-weight: 300;
-  font-style: normal;
-  vertical-align: middle;
 }
 
 .transcript-box {
@@ -130,11 +128,11 @@ a.button:not(.disabled):hover, a:link.button:not(.disabled):hover, a:visited.but
 }
 
 .table.table-borderless td, .table.table-borderless th {
-    border: 0 !important;
+  border: 0 !important;
 }
 
 .table.table-borderless {
-    margin-bottom: 0px;
+  margin-bottom: 0px;
 }
 
 .btn {
