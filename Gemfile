@@ -39,7 +39,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'paperclip', '~> 5.1.0' # Used by Ckeditor
 gem 'inherited_resources', '~> 1.7'
 gem 'activeadmin', '~> 1.0.0.pre5'
-gem 'bootstrap', '~> 4.0.0.alpha6'
+gem 'bootstrap', '~> 4.0.0.beta2.1'
 gem 'annotate', '~> 2.7', '>= 2.7.1'
 gem 'aws-sdk', '~> 2.8', '>= 2.8.7'
 gem 'devise', '~> 4.2'

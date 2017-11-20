@@ -48,17 +48,9 @@ audio {
     background-color: $header-background-color;
 }
 
-.navbar-toggler-right {
-    position: absolute;
-    right: 1rem;
-    top: 100px;
-}
-
 .navbar-light .navbar-nav .nav-link {
-  font-size: 20px;
-  color: $black-text-color;
-  font-weight: normal;
-  font-family: 'Raleway', sans-serif;
+  font-size: 18px;
+  font-family: 'Roboto', sans-serif;
 }
 
 .btn-outline-secondary:hover, .btn-outline-secondary:focus, .btn-outline-secondary:active, .btn-outline-secondary.active, .open>.dropdown-toggle.btn-outline-secondary {

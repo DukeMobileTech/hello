@@ -1,4 +1,3 @@
-<%# content_for :title, 'Documents' %>
 <div class="row post-header">
   <div class="col-xs-12 col-md-12 subtitle text-center">
     <%= @category.name %>
@@ -10,7 +9,7 @@
   <div class="text-center">
     <%= document.title %>
   </div>
-  <div>
+  <div class="row col-xs-12">
     <%= raw document.description %>
   </div>
   <% if document && document.doc_file_url %>
