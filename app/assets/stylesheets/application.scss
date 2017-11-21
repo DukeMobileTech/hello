@@ -43,6 +43,7 @@ body {
 h1, h2, h3, h4, h5, h6 {
   font-family: "Roboto Slab","proxima_nova_regular",Calibri,Arial,Verdana,sans-serif;
   line-height: 1.2em;
+  margin-bottom: 0;
 }
 
 @media (min-width: 576px) {
@@ -81,6 +82,7 @@ audio {
 nav a, a:visited, a:hover, a:link, a:active {
   text-decoration: none;
   padding: 0;
+  color: #0680cd;
 }
 
 a.button:not(.disabled):hover, a:link.button:not(.disabled):hover, a:visited.button:not(.disabled):hover, input[type=submit]:not(.disabled):hover, input[type=button]:not(.disabled):hover, button:not(.disabled):hover {
