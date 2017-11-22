@@ -12,7 +12,7 @@
 </head>
 
 <body>
-  <nav class="navbar navbar-expand-lg sticky-top navbar-light bg-light">
+  <nav class="navbar navbar-expand-lg sticky-top navbar-light">
     <div class="container">
       <a class="navbar-brand" href="<%= root_path %>">
         <img src="<%= asset_path('logo.png') %>" height="100">
@@ -26,42 +26,36 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav ml-auto">
         <li class="nav-item">
-          <button class="btn btn-sm btn-outline-secondary" type="button">
-            <a class="nav-link text-muted" href="<%= videos_path %>">Videos</a>
-          </button>
+          <a class="nav-link" href="<%= videos_path %>">Videos</a>
         </li>
         <li class="nav-item dropdown">
-          <button class="btn btn-sm btn-outline-secondary" type="button">
-            <a class="nav-link dropdown-toggle text-muted" href="#" id="navbarDropdown"
-            role="button" data-toggle="dropdown" aria-haspopup="true"
-            aria-expanded="false">
-            Resources
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
+          role="button" data-toggle="dropdown" aria-haspopup="true"
+          aria-expanded="false">
+          Resources
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <% Category.all.each do |category| %>
+          <a class="nav-link" href="<%= category_documents_path(category) %>">
+            <%= category.name %>
           </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <% Category.all.each do |category| %>
-            <a class="nav-link text-muted" href="<%= category_documents_path(category) %>">
-              <%= category.name %>
-            </a>
-            <div class="dropdown-divider"></div>
-            <% end %>
-          </div>
-        </button>
+          <div class="dropdown-divider"></div>
+          <% end %>
+        </div>
       </li>
       <li class="nav-item dropdown">
-        <button class="btn btn-sm btn-outline-secondary" type="button">
-          <a class="nav-link dropdown-toggle text-muted" href="<%= pages_path %>"
-            id="navbarAboutDropdownMenuLink" data-toggle="dropdown">
-            About
+        <a class="nav-link dropdown-toggle" href="<%= pages_path %>"
+          id="navbarAboutDropdownMenuLink" data-toggle="dropdown">
+          About
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarAboutDropdownMenuLink">
+          <% Page.all.each do |page| %>
+          <a class="nav-link" href="<%= page_path(page) %>">
+            <%= page.title %>
           </a>
-          <div class="dropdown-menu" aria-labelledby="navbarAboutDropdownMenuLink">
-            <% Page.all.each do |page| %>
-            <a class="nav-link text-muted" href="<%= page_path(page) %>">
-              <%= page.title %>
-            </a>
-            <div class="dropdown-divider"></div>
-            <% end %>
-          </div>
-        </button>
+          <div class="dropdown-divider"></div>
+          <% end %>
+        </div>
       </li>
     </ul>
   </div>
@@ -79,7 +73,7 @@
 <footer class="footer">
   <div class="container">
     <div class="text-center text-muted">
-      <%= raw "Copyright #{Time.current.year} HELLO PROJECT" %>
+      <%= raw "Copyright #{Time.current.year}. The Duke-Durham HELLO Project" %>
     </div>
   </div>
 </footer>

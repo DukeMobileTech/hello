@@ -1,6 +1,7 @@
-<h3 class="bd-title text-center">
+<h3 class="text-center text-black text-capitalize">
   <%= @post.child_by_language(@language).try(:title) || @post.title %>
-</h4>
+</h3>
+
 <div class="box-block">
   <div class="row">
     <div class="col-xs-12 col-md-8">
@@ -26,7 +27,7 @@
         <div class="text-center mb-1">
           <% (@post.languages - [@language]).each do |lang| %>
           <%= link_to get_language(lang), language_category_post_path(@category, @post, lang),
-          class: 'bg-info text-white p-1 m-1' %>
+          class: 'btn btn-light text-black p-1 m-1' %>
           <% end %>
         </div>
         <% @translations.each do |translation| %>
