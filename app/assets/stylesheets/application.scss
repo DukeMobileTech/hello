@@ -27,6 +27,8 @@ $page-title-background-color: #01A2A6;
 $dimgray: #696969;
 $lightgray: #D3D3D3;
 $papayawhip: #FFEFD5;
+$red-color: #E01A27;
+$black-color: #000000;
 
 html {
   position: relative;
@@ -78,18 +80,25 @@ audio {
 .navbar-light .navbar-nav .nav-link {
   font-family: "Roboto Slab","proxima_nova_regular",Calibri,Arial,Verdana,sans-serif;
   font-size: 18px;
-  color: black;
+  color: $black-color;
 }
 
 .dropdown-menu {
   background-color: $body-background-color;
-  padding: 0rem 0rem 0rem 0.5rem;
+  padding: 0rem 0rem 0rem 0.05rem;
   border-radius: 0;
 }
 
 .dropdown-divider {
   margin: 0;
   border-top: 1px solid rgba(0, 0, 0, 0.15);
+}
+
+.dropdown-menu .nav-link {
+  font-size: 14px !important;
+  display: inline-block !important;
+  padding: 0.25rem 1rem !important;
+  color: $red-color !important;
 }
 
 .card {
@@ -125,7 +134,7 @@ a.button:not(.disabled):hover, a:link.button:not(.disabled):hover, a:visited.but
 }
 
 .text-black {
-  color: black !important;
+  color: $black-color !important;
 }
 
 .cke_chrome {
