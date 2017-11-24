@@ -98,7 +98,6 @@ audio {
   font-size: 14px !important;
   display: inline-block !important;
   padding: 0.25rem 1rem !important;
-  color: $red-color !important;
 }
 
 .card {
@@ -113,6 +112,18 @@ nav a, a:visited, a:hover, a:link, a:active {
 a.button:not(.disabled):hover, a:link.button:not(.disabled):hover, a:visited.button:not(.disabled):hover, input[type=submit]:not(.disabled):hover, input[type=button]:not(.disabled):hover, button:not(.disabled):hover {
   background-image: none !important;
   background-color: $body-background-color !important;
+}
+
+.btn-green {
+  background-color: #138D5C;
+  padding: 0;
+  margin: 1px;
+}
+
+li.btn-green {
+  background-color: #138D5C;
+  padding: 0;
+  margin: 1px;
 }
 
 .separator {

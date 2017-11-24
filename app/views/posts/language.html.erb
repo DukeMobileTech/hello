@@ -27,7 +27,7 @@
         <div class="text-center mb-1">
           <% (@post.languages - [@language]).each do |lang| %>
           <%= link_to get_language(lang), language_category_post_path(@category, @post, lang),
-          class: 'btn btn-light text-black p-1 m-1' %>
+          class: 'btn btn-green text-black p-1 m-1' %>
           <% end %>
         </div>
         <% @translations.each do |translation| %>
